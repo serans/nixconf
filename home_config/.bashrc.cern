@@ -1,0 +1,38 @@
+# bashrc file for CERN dev computer
+
+#########
+# PATHS #
+#########
+
+FGCROOT=$HOME/CERN/fgc
+
+export PERL5LIB=$FGCROOT/sw/clients/perl:$FGCHOME/sw/utilities/perl:$FGCHOME/sw/lib/extern/perl:$PERL5LIB
+
+#########
+# ALIAS #
+#########
+
+# locations
+
+alias cdfgc="cd $FGCROOT"
+alias cdg64="cd ~/projects/g64/"
+alias cdbc="cd $FGCROOT/sw/fgc/barcode_id"
+alias cdsw="cd $FGCROOT/sw/"
+alias cd8="cd $FGCROOT/sw/fgcd/8/"
+alias cddoc="cd $FGCROOT/doc/converters"
+alias cdclients="cd $FGCROOT/sw/clients/perl/"
+alias cdutils="cd $FGCROOT/sw/utilities/perl/"
+alias cdxml="cd $FGCROOT/def/xml"
+alias cddef="cd $FGCROOT/def"
+alias cdtracing="cd /nfs/cs-ccr-tracing/local/cmw-log/cmw-log-writer/logs/"
+alias cdnfs="cd /user/mhermose/"
+alias cdafs="cd /afs/cern.ch/user/m/mhermose/"
+alias cdspsdoc="cd /afs/cern.ch/user/m/mhermose/cernbox/Documents/projects/SPS_mains"
+
+# this is required to run unoconv (used in fgc parser)
+alias python='/usr/bin/python3'
+
+# programs
+alias ccrt="rlwrap ~/CERN/fgc/sw/lib/cclibs/ccrt/Linux/x86_64/ccrt"
+
+
