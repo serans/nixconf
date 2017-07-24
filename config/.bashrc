@@ -10,12 +10,13 @@ esac
 
 
 
-
-
-
 #########
 # ALIAS #
 #########
+
+# conf
+
+alias cernconf="source ~/.bashrc.cern"
 
 # git                                  
                                              
@@ -106,8 +107,6 @@ function __prompt_command() {
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
@@ -131,3 +130,10 @@ fi
 # Stuff for tmux
 
 TERM=xterm-256color
+
+# Include CERN config automatically if I'm logging in a DEV machine
+
+if [ "$SSH_TTY" ] && [[ $HOSTNAME == "cs-ccr-"* ]]
+then
+    cernconf
+fi
