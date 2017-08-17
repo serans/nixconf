@@ -86,6 +86,7 @@ export PROMPT_COMMAND=__prompt_command
 function __prompt_command() {
     local EXIT="$?"             # This needs to be first
     local returncode;
+    local env_name;
 
     local RCol='\[\e[0m\]'
     local Red='\[\e[0;31m\]'
@@ -96,11 +97,17 @@ function __prompt_command() {
     local Cyan='\[\e[36m\]'
     local BRed='\[\e[41m\]'
 
+    # Python virtual env
+    if [ ! -z "$VIRTUAL_ENV" ]; then
+	    env_name=$(basename "$VIRTUAL_ENV")
+	    env_name="($env_name) "
+    fi
+
     if [ $EXIT != 0 ]; then
         returncode="${Red}=$EXIT${RCol} "      # Add red if exit code non 0
     fi
 
-    PS1="\n[$returncode${Cyan}\u${RCol}@${BBlu}\h ${RCol}\w]\n$ "
+    PS1="\n$env_name[$returncode${Cyan}\u${RCol}@${BBlu}\h ${RCol}\w]\n$ "
 }
 
 # enable color support of ls and also add handy aliases
