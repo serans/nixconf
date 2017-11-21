@@ -17,6 +17,7 @@ esac
 # conf
 
 alias cernconf="source ~/.bashrc.cern"
+alias py="source ~/.local/python_env/std/bin/activate"
 
 # git                                  
                                              
@@ -136,7 +137,7 @@ fi
 
 # Stuff for tmux
 
-TERM=xterm-256color
+#TERM=xterm-256color
 
 # Include CERN config automatically if I'm logging in a DEV machine
 
