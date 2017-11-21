@@ -237,14 +237,8 @@ bind p paste-buffer
 
 # Home / End keys should work too...
 
-bind -n End send-key C-e
-bind -n Home send-key C-a
-
-
-
-
-
-
+#bind -n End send-key C-e
+#bind -n Home send-key C-a
 
 
 # -------------------------
