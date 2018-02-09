@@ -141,7 +141,7 @@ fi
 
 # Include CERN config automatically if I'm logging in a DEV machine
 
-if [ "$SSH_TTY" ] && [[ $HOSTNAME == "cs-ccr-"* ]]
+if [[ $HOSTNAME == "cs-ccr-"* ]]
 then
     cernconf
 fi
