@@ -9,3 +9,6 @@ set showmode
 set showcmd
 set nocompatible              " vim, not vi
 set smartindent
+
+" Markdown highlighting
+autocmd BufRead,BufNew,BufNewFile *.md setlocal ft=markdown.gfm
