@@ -1,28 +1,5 @@
 # bashrc file for CERN dev computers
 
-#########
-# PATHS #
-#########
-
-# Computer where I run stuff on the TN
-TECHNET_HOST="cs-ccr-dev1"
-
-# Function to make sure a command is run in the TN
-run_on_technet()
-{
-	if [[ "$(hostname)" =~ ^cs-ccr- ]]; then
-		${1}
-	else
-		echo "Launching command on technet..."
-		ssh -X ${TECHNET_HOST} "${1}"
-	fi
-}
-
-jws_tn()
-{
-    run_on_technet "/mcr/bin/javaws \"$1\""
-}
-
 #######
 # SSH #
 #######
@@ -114,42 +91,40 @@ alias sagent="sshagent_init"
 alias fgcrun="ssh -Y -o StrictHostKeyChecking=no cs-ccr-teepc2.cern.ch /user/pclhc/bin/perl/fgcrun+.sh"
 
 # FESA2 device management tool
-alias f2dev="jws_tn /acc/local/java/fesa/CURRENT_RELEASE/FMT.jnlp"
+alias f2dev="/mcr/bin/javaws /acc/local/java/fesa/CURRENT_RELEASE/FMT.jnlp"
 
 # FESA2 Shell tool
-alias f2sh="jws_tn /acc/local/java/fesa/CURRENT_RELEASE/FST.jnlp"
+alias f2sh="/mcr/bin/javaws /acc/local/java/fesa/CURRENT_RELEASE/FST.jnlp"
 
 # FESA2 Navigator
-alias f2nav="jws_tn /acc/local/java/fesa/CURRENT_RELEASE/FNT.jnlp"
+alias f2nav="/mcr/bin/javaws /acc/local/java/fesa/CURRENT_RELEASE/FNT.jnlp"
 
 # CMW admin
-alias cmwadmin="jws_tn http://slwww.cern.ch/~pcrops/releaseinfo/pcropsdist/cmw/cmw-admin/PRO/cmw-admin.jnlp"
+alias cmwadmin="/mcr/bin/javaws http://slwww.cern.ch/~pcrops/releaseinfo/pcropsdist/cmw/cmw-admin/PRO/cmw-admin.jnlp"
 
 # FESA3 Navigator
-fnav(){ run_on_technet "/user/pcrops/deployments/applications/cern/fesa/Navigator/PRO/source/runFESA3NavigatorLauncher  \"$1\""; }
+alias fnav="/user/pcrops/deployments/applications/cern/fesa/Navigator/PRO/source/runFESA3NavigatorLauncher"
 
 # DIAMON
-alias diamon="jws_tn http://bewww.cern.ch/~diamonop/dmn2-gui-console/cgi-bin/dmn2-console-pro.jnlpx"
+alias diamon="/mcr/bin/javaws http://bewww.cern.ch/~diamonop/dmn2-gui-console/cgi-bin/dmn2-console-pro.jnlpx"
 
 # Laser console
-alias laser="jws_tn http://bewww/~diamonop/laser-alarm-console/PRO/deploy/launch.jnlpx"
+alias laser="/mcr/bin/javaws http://bewww/~diamonop/laser-alarm-console/PRO/deploy/launch.jnlpx"
 
 # JAPC toolbox
-alias japc="jws_tn http://abwww.cern.ch/ap/dist/inca/app/inca-app/PRO/IncaJapcToolbox.jnlp"
+alias japc="/mcr/bin/javaws http://abwww.cern.ch/ap/dist/inca/app/inca-app/PRO/IncaJapcToolbox.jnlp"
 
 # OASIS
-alias oasis="jws_tn http://abwww.cern.ch/ap/pro/oasis/oasis-viewer/oasis-viewer.jnlp"
+alias oasis="/mcr/bin/javaws http://abwww.cern.ch/ap/pro/oasis/oasis-viewer/oasis-viewer.jnlp"
 
 # TIMBER
 alias timber="http://abwww.cern.ch/~pcrops/releaseinfo/pcropsdist/accsoft/cals/accsoft-cals-extr-app/PRO/timber.jnlpx"
 
 # Tgm Video
-alias tgmvideo="jws_tn http://abwww.cern.ch/ap/dist/accsoft/timing/accsoft-timing-app-tgmvideo/PRO/VideoLauncher.jnlp"
-
-# Remote FEC reset
-rem_reset(){ run_on_technet "/mcr/reset/rem_reset \"$1\""; }
+alias tgmvideo="/mcr/bin/javaws http://abwww.cern.ch/ap/dist/accsoft/timing/accsoft-timing-app-tgmvideo/PRO/VideoLauncher.jnlp"
 
 ###########
 # Startup #
 ###########
+
 sagent
