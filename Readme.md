@@ -1,3 +1,3 @@
-# nixconf
+# Nixenv
 
-Simple Makefile to sync user configuration between machines
+Personal \*nix environment
