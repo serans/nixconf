@@ -1,14 +1,24 @@
 #!/bin/bash
 
-###############
-# FUNCTIONS   #
-###############
+###########
+# GLOBALS #
+###########
+
 C_R='\033[0;31m'
 C_G='\033[0;32m'
 C_H1='\033[1;37m'
 C_N='\033[0m'
 
 nixenv_src=$(pwd)
+
+
+###############
+# FUNCTIONS   #
+###############
+
+function _h1_ {
+    printf "\n${C_H1}$@${C_N}\n"
+}
 
 function cmd_exists {
     cmd=$1
@@ -22,51 +32,74 @@ function cmd_exists {
     fi
 }
 
-printf "\n${C_H1}Checking Requirements${C_N}\n"
-cmd_exists wget && exit 1;
-cmd_exists mktemp && exit 1;
 
-printf "\n${C_H1}Creating directory structure${C_N}\n"
+########
+# MAIN #
+########
+
+_h1_ Checking Requirements
+
+cmd_exists wget && exit 1
+
+_h1_ Creating directory structure
 
 mkdir -p $HOME/.local/bin
 mkdir -p $HOME/.local/src
+mkdir -p $HOME/.local/python_envs
 
-printf "\n${C_H1}Installing dotfiles${C_N}\n"
+_h1_ Installing dotfiles
 
 for dotfile in $(find dotfiles -type f); do
     filename=$(basename $dotfile)
 
-    echo "Updating $filename"
+    echo Updating $filename
     source=$nixenv_src/dotfiles/$filename
     dest=$HOME/$filename
 
+    # back up only if it's a file (if it's a link we'll just overwrite it)
     test -f $dest && {
         echo "backing up $dest in .local/old/$filename"
         mkdir -p $HOME/.local/old
         mv $dest $HOME/.local/old/$filename
     }
 
-    ln -s $source $dest
+    ln -sf $source $dest
 
 done
 
-
 source $HOME/.bashrc
 
-printf "\n${C_H1}Installing sowftare...${C_N}\n"
+##########
+# PYTHON #
+##########
+
+_h1_ Installing python...
+
+cmd_exists pip && {
+    wget https://bootstrap.pypa.io/get-pip.py -O $HOME/.local/src/get-pip.py
+    python $HOME/.local/src/get-pip.py --user
+}
+
+cmd_exists virtualenv && {
+    pip install --user virtualenv
+}
+
+test -d $HOME/.local/python_env && {
+    virtualenv $HOME/.local/python_envs/std
+}
+
+source $HOME/.local/python_envs/std/bin/activate
 
 cmd_exists csvlook && {
-    prevdir=$(pwd)
-    wget https://github.com/wireservice/csvkit.git -O $HOME/.local/src/csvkit
-
-    cd $HOME/.local/src/csvkit
-    python setup.py build
-
-    for script in build/lib/csvkit/utilities/*csv*py; do
-        chmod +x $script
-        ln -s $(pwd)/$script ../../bin/$(basename $script .py)
-    done
+    pip install csvkit
 }
+
+
+############
+# Other SW #
+############
+
+_h1_ Installing Tools
 
 cmd_exists jq && {
     case $(uname) in
@@ -83,5 +116,6 @@ cmd_exists jq && {
     esac
 
     wget $URL -O $HOME/.local/bin/jq
+    chmod +x $HOME/.local/bin/jq
 }
 

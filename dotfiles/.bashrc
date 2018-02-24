@@ -1,7 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -13,15 +9,12 @@ esac
 ########
 
 PATH=$PATH:$HOME/.local/bin
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+source ~/.local/python_envs/std/bin/activate
 
 #########
 # ALIAS #
 #########
-
-# conf
-
-alias cernconf="source ~/.bashrc.cern"
-alias py="source ~/.local/python_env/std/bin/activate"
 
 # git                                  
                                              
@@ -33,6 +26,7 @@ alias gdt="git difftool -y"
 
 # ls
 
+alias ls='ls -G'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -102,17 +96,11 @@ function __prompt_command() {
     local Cyan='\[\e[36m\]'
     local BRed='\[\e[41m\]'
 
-    # Python virtual env
-    if [ ! -z "$VIRTUAL_ENV" ]; then
-	    env_name=$(basename "$VIRTUAL_ENV")
-	    env_name="($env_name) "
-    fi
-
     if [ $EXIT != 0 ]; then
         returncode="${Red}=$EXIT${RCol} "      # Add red if exit code non 0
     fi
 
-    PS1="\n$env_name[$returncode${Cyan}\u${RCol}@${BBlu}\h ${RCol}\w]\n$ "
+    PS1="\n[$returncode${Cyan}\u${RCol}@${BBlu}\h ${RCol}\w]\n$ "
 }
 
 # enable color support of ls and also add handy aliases
@@ -143,15 +131,18 @@ fi
 
 #TERM=xterm-256color
 
-
 ##########################
 # Per-host configuration #
 ##########################
 
-if [[ $HOSTNAME == 'pcbe16512' ]]; then
+if [[ $(uname) = "Darwin" ]]; then 
+   export PATH=$PATH:$HOME/Library/Python/2.7/bin/
+fi
+
+if [[ $HOSTNAME = 'pcbe16512' ]]; then
     export MANPATH='/usr/share/man/'
 fi
 
-if [[ $HOSTNAME == "cs-ccr-"* ]]; then
-    cernconf
+if [[ $HOSTNAME = "cs-ccr-"* ]]; then
+   source ~/.bashrc.cern
 fi
