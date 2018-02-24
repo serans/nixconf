@@ -123,6 +123,31 @@ alias timber="http://abwww.cern.ch/~pcrops/releaseinfo/pcropsdist/accsoft/cals/a
 # Tgm Video
 alias tgmvideo="/mcr/bin/javaws http://abwww.cern.ch/ap/dist/accsoft/timing/accsoft-timing-app-tgmvideo/PRO/VideoLauncher.jnlp"
 
+
+function fec_acc {  
+   # Force automount of configuration directories if FEC not found
+   test -d /acc/dsc/src/*/$1 || (ls /acc/dsc/{lhc,ctf,ade,lin,sps,svc,ln3,tst,lei,cps,lhc,ln4,isp,psb,mcr,svc} &> /dev/null)
+   prevdir=$(pwd)
+   cd /acc/dsc/src/*/$1
+   if [[ $? -eq 0 ]]; then 
+      basename $(dirname $(pwd))
+      cd $prevdir
+   fi
+}
+
+function cdfec {
+   acc=$(fec_acc $1)
+   if [[ $acc ]]; then cd /acc/dsc/src/$acc/$1;
+   else echo "ERROR: FEC not found"; fi
+}
+
+function cdfec_hd {
+   acc=$(fec_acc $1)
+   if [[ $acc ]]; then cd /acc/dsc/src/$acc/$1;
+   else echo "ERROR: FEC not found"; fi
+}
+
+
 ###########
 # Startup #
 ###########

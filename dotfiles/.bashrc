@@ -8,7 +8,11 @@ case $- in
       *) return;;
 esac
 
+########
+# PATH #
+########
 
+PATH=$PATH:$HOME/.local/bin
 
 #########
 # ALIAS #
@@ -139,9 +143,15 @@ fi
 
 #TERM=xterm-256color
 
-# Include CERN config automatically if I'm logging in a DEV machine
 
-if [[ $HOSTNAME == "cs-ccr-"* ]]
-then
+##########################
+# Per-host configuration #
+##########################
+
+if [[ $HOSTNAME == 'pcbe16512' ]]; then
+    export MANPATH='/usr/share/man/'
+fi
+
+if [[ $HOSTNAME == "cs-ccr-"* ]]; then
     cernconf
 fi
