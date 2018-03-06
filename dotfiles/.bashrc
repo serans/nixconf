@@ -85,22 +85,17 @@ export PROMPT_COMMAND=__prompt_command
 function __prompt_command() {
     local EXIT="$?"             # This needs to be first
     local returncode;
-    local env_name;
 
-    local RCol='\[\e[0m\]'
-    local Red='\[\e[0;31m\]'
-    local Gre='\[\e[0;32m\]'
-    local BYel='\[\e[1;33m\]'
-    local BBlu='\[\e[1;34m\]'
-    local Pur='\[\e[0;35m\]'
-    local Cyan='\[\e[36m\]'
-    local BRed='\[\e[41m\]'
+    local C_N='\[\e[0m\]'
+    local C_Blue='\[\e[1;34m\]'
+    local C_Red='\[\e[0;31m\]'
+    local C_Cyan='\[\e[36m\]'
 
     if [ $EXIT != 0 ]; then
-        returncode="${Red}=$EXIT${RCol} "      # Add red if exit code non 0
+        returncode="${C_Red}=$EXIT${C_N} "      # Add red if exit code non 0
     fi
 
-    PS1="\n[$returncode${Cyan}\u${RCol}@${BBlu}\h ${RCol}\w]\n$ "
+    PS1="\n[$returncode${C_Cyan}\u${C_N}@${C_Blue}\h ${C_N}\w]\n$ "
 }
 
 # enable color support of ls and also add handy aliases
