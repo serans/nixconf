@@ -84,8 +84,9 @@ cmd_exists virtualenv && {
     pip install --user virtualenv
 }
 
-test -d $HOME/.local/python_env && {
-    virtualenv $HOME/.local/python_envs/std
+echo "Setting up std virtualenv in $HOME/.local/python_envs/std"
+test -d $HOME/.local/python_envs/std || {
+    virtualenv -p $HOME/.local/python_envs/std
 }
 
 source $HOME/.local/python_envs/std/bin/activate
