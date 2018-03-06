@@ -39,6 +39,7 @@ function cmd_exists {
 
 _h1_ Checking Requirements
 
+cmd_exists pandoc && exit 1
 cmd_exists wget && exit 1
 
 _h1_ Creating directory structure
