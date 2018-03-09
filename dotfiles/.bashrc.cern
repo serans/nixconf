@@ -85,7 +85,6 @@ alias cdafs="cd /afs/cern.ch/user/m/mhermose/"
 # programs #
 ############
 alias sql="rlwrap sqlplus"
-alias sagent="sshagent_init"
 
 # Fgcrun+
 alias fgcrun="ssh -Y -o StrictHostKeyChecking=no cs-ccr-teepc2.cern.ch /user/pclhc/bin/perl/fgcrun+.sh"
@@ -141,15 +140,18 @@ function cdfec {
    else echo "ERROR: FEC not found"; fi
 }
 
-function cdfec_hd {
+function cdfechd {
    acc=$(fec_acc $1)
-   if [[ $acc ]]; then cd /acc/dsc/src/$acc/$1;
+   if [[ $acc ]]; then cd /acc/dsc/$acc/$1;
    else echo "ERROR: FEC not found"; fi
 }
 
+function rem_ctr { 
+    ssh $1 "echo '$2' | ctrtest-timdt"; 
+}
 
 ###########
 # Startup #
 ###########
 
-sagent
+sshagent_init
