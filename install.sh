@@ -50,7 +50,7 @@ mkdir -p $HOME/.local/python_envs
 
 _h1_ Installing dotfiles
 
-for dotfile in $(find dotfiles -type f); do
+for dotfile in $(find $nixenv_src/dotfiles -type f); do
     filename=$(basename $dotfile)
 
     echo Updating $filename
@@ -96,6 +96,19 @@ cmd_exists csvlook && {
     pip install csvkit
 }
 
+###########
+# Scripts #
+###########
+
+_h1_ Installing Scripts
+
+for cmd in $(find $nixenv_src/bin -type f); do
+    filename=$(basename $cmd)
+    cmd_exists $filename && {
+	echo "Installing $filename..."
+        ln -s $nixenv_src/bin/$filename $HOME/.local/bin/$filename
+    }
+done
 
 ############
 # Other SW #
