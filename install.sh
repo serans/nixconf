@@ -17,7 +17,7 @@ nixenv_src=$(pwd)
 ###############
 
 function _h1_ {
-    printf "\n${C_H1}$@${C_N}\n"
+    printf "\n${C_H1}$@ ${C_N}\n"
 }
 
 function cmd_exists {
@@ -37,18 +37,19 @@ function cmd_exists {
 # MAIN #
 ########
 
-_h1_ Checking Requirements
+_h1_ "Checking Requirements"
 
 cmd_exists pandoc && exit 1
 cmd_exists wget && exit 1
+cmd_exists tmux && exit 1
 
-_h1_ Creating directory structure
+_h1_ "Creating directory structure"
 
 mkdir -p $HOME/.local/bin
 mkdir -p $HOME/.local/src
 mkdir -p $HOME/.local/python_envs
 
-_h1_ Installing dotfiles
+_h1_ "Installing dotfiles"
 
 for dotfile in $(find $nixenv_src/dotfiles -type f); do
     filename=$(basename $dotfile)
@@ -68,13 +69,23 @@ for dotfile in $(find $nixenv_src/dotfiles -type f); do
 
 done
 
+echo "Fixing tmux version..."
+
+if [ "$(tmux -V)" = "tmux 1.8" ]; then
+   unlink $HOME/.tmux.conf
+   unlink $HOME/.tmux.conf.local
+   mv $HOME/.tmux1.8.conf $HOME/.tmux.conf
+else
+   unlink $HOME/.tmux1.8.conf
+fi
+
 source $HOME/.bashrc
 
 ##########
 # PYTHON #
 ##########
 
-_h1_ Installing python...
+_h1_ "Installing python..."
 
 cmd_exists pip && {
     wget https://bootstrap.pypa.io/get-pip.py -O $HOME/.local/src/get-pip.py
@@ -100,7 +111,7 @@ cmd_exists csvlook && {
 # Scripts #
 ###########
 
-_h1_ Installing Scripts
+_h1_ "Installing Scripts"
 
 for cmd in $(find $nixenv_src/bin -type f); do
     filename=$(basename $cmd)
@@ -114,7 +125,7 @@ done
 # Other SW #
 ############
 
-_h1_ Installing Tools
+_h1_ "Installing Tools"
 
 cmd_exists jq && {
     case $(uname) in
