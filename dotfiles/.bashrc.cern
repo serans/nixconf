@@ -122,10 +122,11 @@ alias timber="http://abwww.cern.ch/~pcrops/releaseinfo/pcropsdist/accsoft/cals/a
 # Tgm Video
 alias tgmvideo="/mcr/bin/javaws http://abwww.cern.ch/ap/dist/accsoft/timing/accsoft-timing-app-tgmvideo/PRO/VideoLauncher.jnlp"
 
+export ACC_LIST=lhc,ctf,ade,lin,sps,svc,ln3,tst,lei,cps,lhc,ln4,isp,psb,mcr,svc
 
 function fec_acc {  
    # Force automount of configuration directories if FEC not found
-   test -d /acc/dsc/src/*/$1 || (ls /acc/dsc/{lhc,ctf,ade,lin,sps,svc,ln3,tst,lei,cps,lhc,ln4,isp,psb,mcr,svc} &> /dev/null)
+   test -d /acc/dsc/src/*/$1 || (ls /acc/dsc/{$ACC_LIST} &> /dev/null)
    prevdir=$(pwd)
    cd /acc/dsc/src/*/$1
    if [[ $? -eq 0 ]]; then 
@@ -149,6 +150,7 @@ function cdfechd {
 function rem_ctr { 
     ssh $1 "echo '$2' | ctrtest-timdt"; 
 }
+
 
 ###########
 # Startup #
