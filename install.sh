@@ -98,7 +98,7 @@ cmd_exists virtualenv && {
 
 echo "Setting up std virtualenv in $HOME/.local/python_envs/std"
 test -d $HOME/.local/python_envs/std || {
-    virtualenv -p $HOME/.local/python_envs/std
+    virtualenv $HOME/.local/python_envs/std
 }
 
 source $HOME/.local/python_envs/std/bin/activate
