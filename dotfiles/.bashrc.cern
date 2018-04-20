@@ -1,5 +1,8 @@
 # bashrc file for CERN dev computers
 
+# for some reason perl breaks if not empty
+export LC_CTYPE=
+
 #######
 # SSH #
 #######
@@ -76,6 +79,7 @@ function sshagent_init {
 #########
 
 # locations
+alias win="xfreerdp --no-nla --ignore-certificate --plugin cliprdr -g 1900x1150 -u mhermose -d CERN cernts"
 
 alias cdtracing="cd /nfs/cs-ccr-tracing/local/cmw-log/cmw-log-writer/logs/"
 alias cdnfs="cd /user/mhermose/"

@@ -138,6 +138,6 @@ if [[ $HOSTNAME = 'pcbe16512' ]]; then
     export MANPATH='/usr/share/man/'
 fi
 
-if [[ $HOSTNAME = "cs-ccr-"* ]]; then
+if [[ $HOSTNAME = "cs-ccr-"* ]] || [[ $HOSTNAME = "cwe-513-vol736" ]]; then
    source ~/.bashrc.cern
 fi
