@@ -1,14 +1,32 @@
-syntax on
+"""""""""""
+" General "
+"""""""""""
+set encoding=utf8
+set nocompatible              " vim, not vi
+
+" UI
 set background=dark
-set ruler                     " show the line number on the bar
-set autoread                  " watch for file changes
-set number                    " line numbers
-set noautowrite               " don't automagically write on :next
-set lazyredraw                " don't redraw when don't have to
+set ruler
+set autoread
+set number
 set showmode
 set showcmd
-set nocompatible              " vim, not vi
+syntax on
+set mouse=a
+
+" Use 256 colors
+set t_Co=256
+
+" Format
 set smartindent
 
-" Markdown highlighting
-autocmd BufRead,BufNew,BufNewFile *.md setlocal ft=markdown.gfm
+" Defult tabs
+set expandtab
+set shiftwidth=3
+set tabstop=2
+
+" Per-fie config
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType Makefile setlocal noexpandtab
+
+
