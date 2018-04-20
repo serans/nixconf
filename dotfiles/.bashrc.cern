@@ -122,6 +122,8 @@ alias timber="http://abwww.cern.ch/~pcrops/releaseinfo/pcropsdist/accsoft/cals/a
 # Tgm Video
 alias tgmvideo="/mcr/bin/javaws http://abwww.cern.ch/ap/dist/accsoft/timing/accsoft-timing-app-tgmvideo/PRO/VideoLauncher.jnlp"
 
+export VM=cwe-513-vol736
+alias cdltim="/nfs/$VM/opt/mhermose/accsoft-eclipse-pro-workspace/LTIM_DU/src/test/cfc-774-cttbtim6"
 export ACC_LIST=lhc,ctf,ade,lin,sps,svc,ln3,tst,lei,cps,lhc,ln4,isp,psb,mcr,svc
 
 function fec_acc {  
