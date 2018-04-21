@@ -1,8 +1,49 @@
+" To-Do:
+"   DONE fzf : find file by name
+"   find in files
+"   jump to definition
+"   explore ctags
+"   view git diff
+"
+"   cl: create alias for fzf with preview
+"   
+"   Look&Feel
+"     - why extra space after tmux bar?
+"     - tabs for buffers: DONE buftabline
+"           to do: shortcut for bn bp
 """""""""""
-" General "
+
 """""""""""
+" Plugins "
+"""""""""""
+
+" to install, run :PluginInstall
+
+" Bundle Config
+set nocompatible "required
+filetype off     "required
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" File management
+Plugin 'scrooloose/nerdtree'
+
+" fuzzy search
+Plugin 'junegunn/fzf'
+
+" Look & Feel
+Plugin 'ap/vim-buftabline'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+"execute pathogen#infect()
+"filetype plugin indent on
+
 set encoding=utf8
-set nocompatible              " vim, not vi
 
 " UI
 set background=dark
@@ -29,4 +70,7 @@ set tabstop=2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType Makefile setlocal noexpandtab
 
-
+"""""""""""""""""""""""""""""""""""""
+" Mappings configurationn
+"""""""""""""""""""""""""""""""""""""
+map <C-n> :NERDTreeToggle<CR>
