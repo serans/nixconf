@@ -43,6 +43,11 @@ filetype plugin indent on    " required
 "execute pathogen#infect()
 "filetype plugin indent on
 
+
+"""""""""""
+" Config  "
+"""""""""""
+
 set encoding=utf8
 
 " UI
@@ -55,22 +60,25 @@ set showcmd
 syntax on
 set mouse=a
 
+" Buffer navigation
+set hidden
+nnoremap . :bnext<CR>
+nnoremap , :bprev<CR>
+
 " Use 256 colors
 set t_Co=256
 
 " Format
 set smartindent
 
-" Defult tabs
+" Defult tabulation
 set expandtab
 set shiftwidth=3
 set tabstop=2
 
-" Per-fie config
+" Per-language config
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType Makefile setlocal noexpandtab
 
-"""""""""""""""""""""""""""""""""""""
-" Mappings configurationn
-"""""""""""""""""""""""""""""""""""""
+" NERDTree config
 map <C-n> :NERDTreeToggle<CR>
