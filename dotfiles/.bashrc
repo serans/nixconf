@@ -31,6 +31,10 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# search / file explore
+
+alias f='fzf --preview="cat {}"'
+alias fv='vim $(f)'
 
 # programs
 
