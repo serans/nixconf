@@ -33,9 +33,12 @@ Plugin 'scrooloose/nerdtree'
 
 " fuzzy search
 Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 " Look & Feel
 Plugin 'ap/vim-buftabline'
+
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -82,3 +85,7 @@ autocmd FileType Makefile setlocal noexpandtab
 
 " NERDTree config
 map <C-n> :NERDTreeToggle<CR>
+
+" FZF config
+map <C-f> :call fzf#vim#files("", fzf#vim#with_preview())<CR>
+"let g:fzf_layout = { 'window': 'enew' }
