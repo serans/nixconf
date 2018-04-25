@@ -1,16 +1,39 @@
-" To-Do:
-"   DONE fzf : find file by name
-"   find in files
-"   jump to definition
-"   explore ctags
-"   view git diff
 "
-"   cl: create alias for fzf with preview
-"   
-"   Look&Feel
-"     - why extra space after tmux bar?
-"     - tabs for buffers: DONE buftabline
-"           to do: shortcut for bn bp
+" Turning VIM into my IDE
+"
+" - Trade flexibility and editing power for discoverability and 'visual'
+"   interface
+"
+" Essentials:
+"   - Mouse Integration
+"   - File explorer (NERDTree)
+"     - Show file in NERDTree
+"   - Search file by name (FZF)
+"     - With preview
+"   - Find in files (Ar)
+"     - With preview
+"   - Buffer Tabs
+"     - Clickable
+"     - Previous/Next
+"     - Jump to...
+"     - Close All
+"     - Close Others ( %bd|e#|bd# )
+"   - Jump/Navigate definitions (Ctags?)
+"
+" Desirable:
+"   git integration
+"     - view state in file explorer
+"     - view state in diff/split window
+"   menu bar with common commands?
+"   command palette a-la vscode
+"     - search for description, find the shortcut
+"     - enter to execute
+"
+" To-Explore:
+"    - TagList
+"    - CtrlP
+
+
 """""""""""
 
 """""""""""
@@ -54,6 +77,7 @@ filetype plugin indent on    " required
 set encoding=utf8
 
 " UI
+
 set background=dark
 set ruler
 set autoread
@@ -61,6 +85,7 @@ set number
 set showmode
 set showcmd
 syntax on
+colorscheme elflord
 set mouse=a
 
 " Buffer navigation
