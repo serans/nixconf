@@ -49,37 +49,37 @@ mkdir -p $HOME/.local/bin
 mkdir -p $HOME/.local/src
 mkdir -p $HOME/.local/python_envs
 
-_h1_ "Installing dotfiles"
-
-for dotfile in $(find $nixenv_src/dotfiles -type f); do
-    filename=$(basename $dotfile)
-
-    echo Updating $filename
-    source=$nixenv_src/dotfiles/$filename
-    dest=$HOME/$filename
-
-    # back up only if it's a file (if it's a link we'll just overwrite it)
-    test -f $dest && {
-        echo "backing up $dest in .local/old/$filename"
-        mkdir -p $HOME/.local/old
-        mv $dest $HOME/.local/old/$filename
-    }
-
-    ln -sf $source $dest
-
-done
-
-echo "Fixing tmux version..."
-
-if [ "$(tmux -V)" = "tmux 1.8" ]; then
-   unlink $HOME/.tmux.conf
-   unlink $HOME/.tmux.conf.local
-   mv $HOME/.tmux1.8.conf $HOME/.tmux.conf
-else
-   unlink $HOME/.tmux1.8.conf
-fi
-
-source $HOME/.bashrc
+# _h1_ "Installing dotfiles"
+# 
+# for dotfile in $(find $nixenv_src/dotfiles -type f); do
+#     filename=$(basename $dotfile)
+# 
+#     echo Updating $filename
+#     source=$nixenv_src/dotfiles/$filename
+#     dest=$HOME/$filename
+# 
+#     # back up only if it's a file (if it's a link we'll just overwrite it)
+#     test -f $dest && {
+#         echo "backing up $dest in .local/old/$filename"
+#         mkdir -p $HOME/.local/old
+#         mv $dest $HOME/.local/old/$filename
+#     }
+# 
+#     ln -sf $source $dest
+# 
+# done
+# 
+# echo "Fixing tmux version..."
+# 
+# if [ "$(tmux -V)" = "tmux 1.8" ]; then
+#    unlink $HOME/.tmux.conf
+#    unlink $HOME/.tmux.conf.local
+#    mv $HOME/.tmux1.8.conf $HOME/.tmux.conf
+# else
+#    unlink $HOME/.tmux1.8.conf
+# fi
+# 
+# source $HOME/.bashrc
 
 ##########
 # PYTHON #
