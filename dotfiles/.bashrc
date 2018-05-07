@@ -9,8 +9,6 @@ esac
 ########
 
 PATH=$PATH:$HOME/.local/bin
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-source ~/.local/python_envs/std/bin/activate
 
 #########
 # ALIAS #
@@ -22,7 +20,7 @@ alias ga="git add"
 alias gc="git commit"
 alias gs="git status"
 alias gd="git diff"
-alias gdt="git difftool -y"
+alias gdt="git difftool --tool=vimdiff --no-prompt"
 
 # ls
 
@@ -138,10 +136,4 @@ if [[ $(uname) = "Darwin" ]]; then
    export PATH=$PATH:$HOME/Library/Python/2.7/bin/
 fi
 
-if [[ $HOSTNAME = 'pcbe16512' ]]; then
-    export MANPATH='/usr/share/man/'
-fi
 
-if [[ $HOSTNAME = "cs-ccr-"* ]] || [[ $HOSTNAME = "cwe-513-vol736" ]]; then
-   source ~/.bashrc.cern
-fi

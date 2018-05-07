@@ -83,7 +83,9 @@ alias win="xfreerdp --no-nla --ignore-certificate --plugin cliprdr -g 1900x1150 
 
 alias cdtracing="cd /nfs/cs-ccr-tracing/local/cmw-log/cmw-log-writer/logs/"
 alias cdnfs="cd /user/mhermose/"
+alias cdcernbox="cd /eos/user/m/mhermose/"
 alias cdafs="cd /afs/cern.ch/user/m/mhermose/"
+alias cdsrc="cd /opt/mhermose/accsoft-eclipse-pro-workspace"
 
 ############
 # programs #
