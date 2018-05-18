@@ -61,7 +61,8 @@ Plugin 'junegunn/fzf.vim'
 " Look & Feel
 Plugin 'ap/vim-buftabline'
 
-
+" Editor : Tabulator
+Plugin 'godlygeek/tabular'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -76,7 +77,11 @@ filetype plugin indent on    " required
 
 set encoding=utf8
 
-" Encryption
+" case insensitive search if search is lowercase
+set ignorecase
+set smartcase
+
+" Crypto
 " (no blowfish2 for compatibility with CERN's vim)
 set cm=blowfish
 
@@ -105,8 +110,8 @@ set smartindent
 
 " Defult tabulation
 set expandtab
-set shiftwidth=3
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
 
 " Per-language config
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
