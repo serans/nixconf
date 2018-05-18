@@ -76,6 +76,10 @@ filetype plugin indent on    " required
 
 set encoding=utf8
 
+" Encryption
+" (no blowfish2 for compatibility with CERN's vim)
+set cm=blowfish
+
 " UI
 
 set background=dark
