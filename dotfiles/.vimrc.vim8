@@ -59,16 +59,14 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
 " Look & Feel
-Plugin 'ap/vim-buftabline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Editor : Tabulator
 Plugin 'godlygeek/tabular'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-"execute pathogen#infect()
-"filetype plugin indent on
 
 
 """""""""""
@@ -123,3 +121,9 @@ map <C-n> :NERDTreeToggle<CR>
 " FZF config
 map <C-f> :call fzf#vim#files("", fzf#vim#with_preview())<CR>
 "let g:fzf_layout = { 'window': 'enew' }
+
+" vim-airline config
+let g:airline#extensions#tabline#enabled    = 1
+let g:airline#extensions#bufferline#enabled = 1
+let g:airline#extensions#tabline#formatter  = 'unique_tail' "_improved'
+let g:airline_theme='alduin'
