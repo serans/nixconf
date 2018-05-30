@@ -1,11 +1,13 @@
 " (Doc in .vimrc.vim8)
 """""""""""
-
+" to check: https://github.com/haya14busa/incsearch.vim
+" to check: easymotion
+" to check: vim-multiple-cursors
+" 
+" to do: modified buffers: do not color in black!
 """""""""""
 " Plugins "
 """""""""""
-
-" to install, run :PluginInstall
 
 " Bundle Config
 set nocompatible "required
@@ -26,6 +28,8 @@ Plugin 'junegunn/fzf.vim'
 " Look & Feel
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'mhinz/vim-signify'
 
 " Editor : Tabulator
 Plugin 'godlygeek/tabular'
@@ -98,7 +102,16 @@ let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
 let g:airline_right_sep = '⮂'
 let g:airline_right_alt_sep = '⮃'
+
+" VCS gutter config
+let g:signify_vcs_list = [ 'git', 'svn' ]
+command Vcs SignifyRefresh|SignifyToggle
+cabbrev git Vcs
+
 " Custom Commands
 
-" Close All other buffers <C-A>
+" Close All other buffers <C-a>
 map <C-a> :NERDTreeClose <bar> %bd <bar> e# <bar> bd# <CR>
+
+" Close current buffer <C-q>
+map <C-q> :bp\|bd #<CR>
