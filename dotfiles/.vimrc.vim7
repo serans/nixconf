@@ -1,42 +1,4 @@
-"
-" Turning VIM into my IDE
-"
-" - Trade flexibility and editing power for discoverability and 'visual'
-"   interface
-"
-" Essentials:
-"   - Mouse Integration
-"   - File explorer (NERDTree)
-"     - Show file in NERDTree
-"   - Search file by name (FZF)
-"     - With preview
-"   - Find in files (Ar)
-"     - With preview
-"   - Buffer Tabs
-"     - Clickable
-"     - Previous/Next
-"     - Jump to...
-"     - Close All
-"     - Close Others ( %bd|e#|bd# )
-"   - Jump/Navigate definitions (Ctags?)
-"
-" Desirable:
-"   git integration
-"     - view state in file explorer
-"     - view state in diff/split window
-"   menu bar with common commands?
-"   command palette a-la vscode
-"     - search for description, find the shortcut
-"     - enter to execute
-"
-" To-Explore:
-"    - TagList
-"    - CtrlP
-"
-"
-" Close all other buffers
-" NERDTreeClose | w | %bd | e# | bn | bd
-
+" (Doc in .vimrc.vim8)
 """""""""""
 
 """""""""""
@@ -62,16 +24,14 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
 " Look & Feel
-Plugin 'ap/vim-buftabline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Editor : Tabulator
 Plugin 'godlygeek/tabular'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-"execute pathogen#infect()
-"filetype plugin indent on
 
 
 """""""""""
@@ -126,3 +86,19 @@ map <C-n> :NERDTreeToggle<CR>
 " FZF config
 map <C-f> :call fzf#vim#files("", fzf#vim#with_preview())<CR>
 "let g:fzf_layout = { 'window': 'enew' }
+
+" vim-airline config
+let g:airline#extensions#tabline#enabled    = 1
+let g:airline#extensions#bufferline#enabled = 1
+let g:airline#extensions#tabline#formatter  = 'unique_tail' "_improved'
+let g:airline_theme='alduin'
+
+let g:airline_powerline_fonts=1
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+" Custom Commands
+
+" Close All other buffers <C-A>
+map <C-a> :NERDTreeClose <bar> %bd <bar> e# <bar> bd# <CR>
