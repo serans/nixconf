@@ -1,25 +1,5 @@
-"
-" Turning VIM into my IDE
-"
-" - Trade flexibility and editing power for discoverability and 'visual'
-"   interface
-"
-" Essentials:
-"   - Mouse Integration
-"   - File explorer (NERDTree)
-"     - Show file in NERDTree
-"   - Search file by name (FZF)
-"     - With preview
-"   - Find in files (Ar)
-"     - With preview
-"   - Buffer Tabs
-"     - Clickable
-"     - Previous/Next
-"     - Jump to...
-"     - Close All
-"     - Close Others ( %bd|e#|bd# )
-"   - Jump/Navigate definitions (Ctags?)
-"
+" Requirements:
+"     - powerline fonts
 " Desirable:
 "   git integration
 "     - view state in file explorer
@@ -29,10 +9,6 @@
 "     - search for description, find the shortcut
 "     - enter to execute
 "
-" To-Explore:
-"    - TagList
-"    - CtrlP
-
 
 """""""""""
 
@@ -127,3 +103,13 @@ let g:airline#extensions#tabline#enabled    = 1
 let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#tabline#formatter  = 'unique_tail' "_improved'
 let g:airline_theme='alduin'
+
+let g:airline_powerline_fonts=1
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+" Custom Commands
+
+" Close All other buffers <C-A>
+map <C-a> :NERDTreeClose <bar> %bd <bar> e# <bar> bd# <CR>
