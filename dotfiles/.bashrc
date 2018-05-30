@@ -134,6 +134,6 @@ fi
 
 if [[ $(uname) = "Darwin" ]]; then 
    export PATH=$PATH:$HOME/Library/Python/2.7/bin/
+else
+   source ~/.bashrc.cern
 fi
-
-

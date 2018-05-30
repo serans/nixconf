@@ -166,3 +166,4 @@ function rem_ctr {
 ###########
 
 sshagent_init
+command -v eosfusebind && eosfusebind
