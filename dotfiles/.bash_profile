@@ -3,5 +3,5 @@ export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-
+#test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+#export PATH="$HOME/.cargo/bin:$PATH"
