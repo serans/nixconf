@@ -1,10 +1,13 @@
 " (Doc in .vimrc.vim8)
 """""""""""
-" to check: https://github.com/haya14busa/incsearch.vim
+" to check: real time pattern matching https://github.com/haya14busa/incsearch.vim
 " to check: easymotion
 " to check: vim-multiple-cursors
 " 
 " to do: modified buffers: do not color in black!
+"
+" to do: update ctags in the background
+"
 """""""""""
 " Plugins "
 """""""""""
@@ -38,21 +41,63 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 
-"""""""""""
-" Config  "
-"""""""""""
+"""""""""
+" Files "
+"""""""""
 
 set encoding=utf8
+
+" Crypto : (no blowfish2 -unavailable in this version-)
+set cm=blowfish
+
+""""""""""""""
+" Navigation "
+""""""""""""""
+
+set mouse=a
 
 " case insensitive search if search is lowercase
 set ignorecase
 set smartcase
 
-" Crypto
-" (no blowfish2 -unavailable in this version-)
-set cm=blowfish
 
-" UI
+" Buffer navigation
+nnoremap . :bnext<CR>
+nnoremap , :bprev<CR>
+
+" NERDTree toggle
+map <C-n> :NERDTreeToggle<CR>
+
+" Launch fzf
+map <C-f> :call fzf#vim#files("", fzf#vim#with_preview())<CR>
+
+" Close All other buffers <C-a>
+map <C-a> :NERDTreeClose <bar> %bd <bar> e# <bar> bd# <CR>
+
+" Close current buffer <C-q>
+map <C-q> :bp\|bd #<CR>
+
+" Toggle git gutter
+command Vcs SignifyRefresh|SignifyToggle
+cabbrev git Vcs
+
+""""""""""
+" Format "
+""""""""""
+
+" Per-language config
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType Makefile setlocal noexpandtab
+
+" Indentation
+set smartindent
+set expandtab
+set shiftwidth=4
+set tabstop=4
+
+"""""""""""
+" Visuals "
+"""""""""""
 
 set background=dark
 set ruler
@@ -60,36 +105,12 @@ set autoread
 set number
 set showmode
 set showcmd
+set hidden  "Show hidden buffers
 syntax on
 colorscheme elflord
-set mouse=a
-
-" Buffer navigation
-set hidden
-nnoremap . :bnext<CR>
-nnoremap , :bprev<CR>
 
 " Use 256 colors
 set t_Co=256
-
-" Format
-set smartindent
-
-" Defult tabulation
-set expandtab
-set shiftwidth=4
-set tabstop=4
-
-" Per-language config
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
-autocmd FileType Makefile setlocal noexpandtab
-
-" NERDTree config
-map <C-n> :NERDTreeToggle<CR>
-
-" FZF config
-map <C-f> :call fzf#vim#files("", fzf#vim#with_preview())<CR>
-"let g:fzf_layout = { 'window': 'enew' }
 
 " vim-airline config
 let g:airline#extensions#tabline#enabled    = 1
@@ -105,13 +126,21 @@ let g:airline_right_alt_sep = '⮃'
 
 " VCS gutter config
 let g:signify_vcs_list = [ 'git', 'svn' ]
-command Vcs SignifyRefresh|SignifyToggle
-cabbrev git Vcs
 
-" Custom Commands
-
-" Close All other buffers <C-a>
-map <C-a> :NERDTreeClose <bar> %bd <bar> e# <bar> bd# <CR>
-
-" Close current buffer <C-q>
-map <C-q> :bp\|bd #<CR>
+""""""""""""""""""
+" Notes and tips "
+""""""""""""""""""
+" Recording
+"  qe (starts recording on register 'e')
+"  (do stuff here)
+"  q (stops recording)
+"
+"  @e (replays commands on register 'e')
+"
+" Wrap text to 80 characters
+"
+"   :set textwidth=80
+"
+"   Then select text, and reformat with
+"   
+"   :gq

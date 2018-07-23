@@ -32,7 +32,7 @@ function sshagent_testsocket {
             rm -f $SSH_AUTH_SOCK
             return 4
         else
-            echo "Found ssh-agent $SSH_AUTH_SOCK"
+            #echo "Found ssh-agent $SSH_AUTH_SOCK"
             return 0
         fi
     else
@@ -78,23 +78,23 @@ function sshagent_init {
 # ALIAS #
 #########
 
+export VM=cwe-513-vol736
+
 # locations
 alias win="xfreerdp --no-nla --ignore-certificate --plugin cliprdr -g 1900x1150 -u mhermose -d CERN cernts"
 
-alias cdtracing="cd /nfs/cs-ccr-tracing/local/cmw-log/cmw-log-writer/logs/"
-alias cdnfs="cd /user/mhermose/"
-alias cdcernbox="cd /eos/user/m/mhermose/"
 alias cdafs="cd /afs/cern.ch/user/m/mhermose/"
-alias cdeos="/eos/user/m/mhermose"
-alias cdsrc="cd /opt/mhermose/accsoft-eclipse-pro-workspace"
+alias cdnfs="cd /user/mhermose/"
+alias cdtracing="cd /nfs/cs-ccr-tracing/local/cmw-log/cmw-log-writer/logs/"
+alias cdsrc="cd /nfs/$VM/opt/mhermose/src"
+alias eclipse="/nfs/$VM/opt/mhermose/accsoft-eclipse-pro/eclipse"
+
 
 ############
 # programs #
 ############
-alias sql="rlwrap sqlplus"
 
-# Fgcrun+
-alias fgcrun="ssh -Y -o StrictHostKeyChecking=no cs-ccr-teepc2.cern.ch /user/pclhc/bin/perl/fgcrun+.sh"
+alias sql="rlwrap sqlplus"
 
 # FESA2 device management tool
 alias f2dev="/mcr/bin/javaws /acc/local/java/fesa/CURRENT_RELEASE/FMT.jnlp"
@@ -129,8 +129,10 @@ alias timber="http://abwww.cern.ch/~pcrops/releaseinfo/pcropsdist/accsoft/cals/a
 # Tgm Video
 alias tgmvideo="/mcr/bin/javaws http://abwww.cern.ch/ap/dist/accsoft/timing/accsoft-timing-app-tgmvideo/PRO/VideoLauncher.jnlp"
 
-export VM=cwe-513-vol736
-alias cdltim="/nfs/$VM/opt/mhermose/accsoft-eclipse-pro-workspace/LTIM_DU/src/test/cfc-774-cttbtim6"
+################
+# Timing Utils #
+################
+
 export ACC_LIST=lhc,ctf,ade,lin,sps,svc,ln3,tst,lei,cps,lhc,ln4,isp,psb,mcr,svc
 
 function fec_acc {  
@@ -160,10 +162,21 @@ function rem_ctr {
     ssh $1 "echo '$2' | ctrtest-timdt"; 
 }
 
+#########
+# CONDA #
+#########
+
+alias condaon="source /afs/cern.ch/work/m/mhermose/anaconda3/bin/activate"
+alias condaoff="conda deactivate"
 
 ###########
 # Startup #
 ###########
 
 sshagent_init
-command -v eosfusebind && eosfusebind
+
+# mount EOS (cernbox) if possible
+test -d /eos || {
+    command -v eosfusebind && eosfusebind
+    alias cdcernbox="cd /eos/user/m/mhermose/"
+}
