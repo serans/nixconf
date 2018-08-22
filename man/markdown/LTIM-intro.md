@@ -20,7 +20,7 @@ The CTR has several counters (4 to 8 depending on the model). Each counter can b
 
 Each counter can have several configurations stored in the CTR, each having an associated **loadEvent**. When such event arrives on the GMT cable, the corresponding configuration is loaded on the counter. It is also possible to have just one configuration on a counter and ignore incoming events. In that case the counter is said to be **remote**.
 
-More details on the CTR are available on the section XXXXX
+More details on the CTR are available on section XXXXX
 
 ## LTIM
 

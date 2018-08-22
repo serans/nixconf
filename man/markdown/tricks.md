@@ -43,7 +43,7 @@ function read_ltims()
 
 # TROUBLESHOTING
 
-Common hardware problems
+## Common hardware problems
 
 - **easypen  M406** : cursor moves but no 'click'
 
@@ -60,7 +60,7 @@ Common hardware problems
     https://github.com/linuxenko/ubuntu-skylake-i915-video-fix
 
 
-Common software problems
+## Common software problems
 
 - **tmux X11** : Fails to launch X11 apps after some time
 
