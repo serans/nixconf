@@ -4,11 +4,11 @@ case $- in
       *) return;;
 esac
 
-########
-# PATH #
-########
+#######
+# ENV #
+#######
 
-PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/cernbox/nixenv/bin
 
 #########
 # ALIAS #
@@ -25,7 +25,7 @@ alias gdt="git difftool --tool=vimdiff --no-prompt"
 # ls
 
 alias ls='ls -G'
-alias ll='ls -alF'
+alias ll="ls -Al --color=auto --time-style=long-iso"
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -41,6 +41,43 @@ alias m="make"
 # Add an "alert" alias for long running commands.  Use like so: `sleep 10; alert`
 
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+####################
+# CUSTOM MAN PAGES #
+####################
+
+CUSTOM_MAN_PAGES=$HOME/cernbox/nixenv/man/manpages
+CUSTOM_MAN_PAGES_MD=$HOME/cernbox/nixenv/man/markdown
+export MANPATH=$MANPATH:$CUSTOM_MAN_PAGES
+
+function maned {
+    
+    markdown_file=$CUSTOM_MAN_PAGES_MD/$1.md
+    man_file=$CUSTOM_MAN_PAGES/manl/$1.l
+
+    vim $markdown_file
+
+    # create man page unless file is empty -user cancelled creation of manpage-
+    test -f $markdown_file && {
+        # to-do: add a template with author / date / title
+        pandoc -s -f markdown -t man $markdown_file > $man_file
+        echo "generating $man_file"
+    }
+}
+
+function manls {
+    ls $CUSTOM_MAN_PAGES/manl/ | sed s/\.l$//
+}
+
+function manrm {
+    test -f $CUSTOM_MAN_PAGES_MD/$1.md && {
+        read -p "Do you want to remove man page '$1'? (y/N)"
+        if [[ $REPLY = 'y' ]]; then
+            rm $CUSTOM_MAN_PAGES_MD/$1.md
+            rm $CUSTOM_MAN_PAGES/manl/$1.l
+        fi
+    }
+}
 
 ###########
 # HISTORY #
@@ -64,10 +101,6 @@ HISTFILESIZE=1000000
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -124,16 +157,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Stuff for tmux
 
-#TERM=xterm-256color
-
-##########################
-# Per-host configuration #
-##########################
-
-if [[ $(uname) = "Darwin" ]]; then 
-   export PATH=$PATH:$HOME/Library/Python/2.7/bin/
-else
-   source ~/.bashrc.cern
-fi

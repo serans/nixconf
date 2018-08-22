@@ -24,6 +24,9 @@ Plugin 'VundleVim/Vundle.vim'
 " File management
 Plugin 'scrooloose/nerdtree'
 
+" Multi-cursor
+Plugin 'terryma/vim-multiple-cursors'
+
 " fuzzy search
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
@@ -66,7 +69,7 @@ nnoremap . :bnext<CR>
 nnoremap , :bprev<CR>
 
 " NERDTree toggle
-map <C-n> :NERDTreeToggle<CR>
+map <C-r> :NERDTreeToggle<CR>
 
 " Launch fzf
 map <C-f> :call fzf#vim#files("", fzf#vim#with_preview())<CR>

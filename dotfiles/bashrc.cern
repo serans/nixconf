@@ -1,7 +1,13 @@
 # bashrc file for CERN dev computers
 
+
+#######
+# ENV #
+#######
+
 # for some reason perl breaks if not empty
 export LC_CTYPE=
+export MANPATH=$MANPATH:/usr/share/man # Add man path (cern's CentOS7 don't seem to get it right)
 
 #######
 # SSH #
@@ -89,6 +95,14 @@ alias cdtracing="cd /nfs/cs-ccr-tracing/local/cmw-log/cmw-log-writer/logs/"
 alias cdsrc="cd /nfs/$VM/opt/mhermose/src"
 alias eclipse="/nfs/$VM/opt/mhermose/accsoft-eclipse-pro/eclipse"
 
+function cdbe { 
+    if [ -d /eos/user/m/mhermose/be/ ]
+    then 
+        cd /eos/user/m/mhermose/be/ 
+    else 
+        cd ~/cernbox/be; 
+    fi
+}
 
 ############
 # programs #
@@ -128,6 +142,11 @@ alias timber="http://abwww.cern.ch/~pcrops/releaseinfo/pcropsdist/accsoft/cals/a
 
 # Tgm Video
 alias tgmvideo="/mcr/bin/javaws http://abwww.cern.ch/ap/dist/accsoft/timing/accsoft-timing-app-tgmvideo/PRO/VideoLauncher.jnlp"
+
+########
+# CBNG #
+########
+alias bob=/nfs/$VM/opt/mhermose/accsoft-eclipse-pro/binary/binary.contents.7075-BCh-3115.winlinuxmac_2.1.3/commonbuild-ng-binaries/gradle/bin/bob
 
 ################
 # Timing Utils #
@@ -176,7 +195,10 @@ alias condaoff="conda deactivate"
 sshagent_init
 
 # mount EOS (cernbox) if possible
-test -d /eos || {
-    command -v eosfusebind && eosfusebind
-    alias cdcernbox="cd /eos/user/m/mhermose/"
+test -d /eos/user/m/mhermose/ || {
+    command -v eosfusebind && 
+    eosfusebind 
 }
+
+alias cdcernbox="cd /eos/user/m/mhermose/"
+
