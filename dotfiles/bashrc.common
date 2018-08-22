@@ -25,7 +25,7 @@ alias gdt="git difftool --tool=vimdiff --no-prompt"
 # ls
 
 alias ls='ls -G'
-alias ll="ls -Al --color=auto --time-style=long-iso"
+alias ll="ls -GAl"
 alias la='ls -A'
 alias l='ls -CF'
 
