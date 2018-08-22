@@ -1,3 +1,0 @@
-# Nixenv
-
-Personal \*nix environment
