@@ -1,10 +1,49 @@
-.TH "TRICKS" "0" "" "" ""
-.SH COMMAND LINE STUFF
+.TH "TRICKS(l)" "" "" "" ""
+.SH COMMAND LINE
+.IP \[bu] 2
+\f[B]ssh hop\f[] : ssh \-J lxplus.cern.ch cs\-ccr\-dev1
 .IP \[bu] 2
 \f[B]paste\f[] : merge lines of text
 .PP
 Example: \f[C]ls\ /\ |\ paste\ \-\ \-\ \-\f[] outputs ls into 3 columns
-.SH HARDWARE
+.IP \[bu] 2
+\f[B]Mount NFS\f[]
+.RS 2
+.PP
+sshfs \-o allow_other \-o follow_symlinks
+mhermose\@cs\-ccr\-dev2:/user/mhermose/ /user/mhermose/ sudo fusermount
+\-u /user/mhermose # (unmounts)
+.PP
+Disable logging level of AFS (to prevent dmesg clutter)
+.PP
+fs messages \-show console #or \-show none
+.RE
+.SH CERN\-SPECIFIC
+.PP
+Compare acquisition of 2 LTIMS
+.IP
+.nf
+\f[C]
+function\ read_ltims()
+{
+\ \ \ L1=$1
+\ \ \ L2=$2
+\ \ \ CY=$3
+\ \ \ 
+\ \ \ rda\-get\ \-r\ location\ \-p\ Acquisition\ \-c\ $CY\ \-d\ $L1\ >\ /tmp/acq${L1}.txt\ &
+\ \ \ PID1=$!
+\ \ \ rda\-get\ \-r\ location\ \-p\ Acquisition\ \-c\ $CY\ \-d\ $L2\ >\ /tmp/acq${L2}.txt\ &
+\ \ \ PID2=$!
+\ \ \ 
+\ \ \ wait\ $PID1\ $PID2
+\ \ 
+\ \ \ echo\ "done"
+}
+\f[]
+.fi
+.SH TROUBLESHOTING
+.PP
+Common hardware problems
 .IP \[bu] 2
 \f[B]easypen M406\f[] : cursor moves but no \[aq]click\[aq]
 .RS 2
@@ -23,9 +62,10 @@ sudo modprobe \-r psmouse sudo modprobe psmouse sudo systemctl suspend
 .PP
 https://github.com/linuxenko/ubuntu\-skylake\-i915\-video\-fix
 .RE
-.SH DEVELOPEMENT
+.PP
+Common software problems
 .IP \[bu] 2
-tmux: Fails to launch X11 apps after some time
+\f[B]tmux X11\f[] : Fails to launch X11 apps after some time
 .RS 2
 .PP
 ssh into computer with tmux to get a new MIT\-MAGIC\-COOKIE\-1
@@ -34,33 +74,14 @@ from there \f[C]echo\ $DISPLAY\f[]
 .PP
 from tmux \f[C]export\ DISPLAY=<display_from_prev_step>\f[]
 .RE
-.SH CERN HOW\-TOs
-.IP \[bu] 2
-Mount NFS
-.RS 2
-.PP
-sshfs \-o allow_other \-o follow_symlinks
-mhermose\@cs\-ccr\-dev2:/user/mhermose/ /user/mhermose/ sudo fusermount
-\-u /user/mhermose # (unmounts)
-.RE
-.IP \[bu] 2
-Disable logging level of AFS (to prevent dmesg clutter)
-.RS 2
-.PP
-fs messages \-show console #or \-show none
-.RE
-.IP \[bu] 2
-Search duplicate dim definitions
-.RS 2
-.PP
-for file in *; do tail \-n +6 $file | head \-n \-3 | md5sum | sort |
-uniq \-c ; done
-.RE
 .SH MISC
 .PP
 Convert pdf to text with more reasonable line breaks
-.PP
-pdftotext file_goc_782011.pdf \- | tr \[aq]\[aq] \[aq]~\[aq] | sed \-r
-\[aq]s/([a\-zA\-Z])~([a\-zA\-Z])/ /gp\[aq] | tr \[aq]~\[aq] \[aq]\[aq]
+.IP
+.nf
+\f[C]
+\ \ pdftotext\ file_goc_782011.pdf\ \-\ |\ \ tr\ \[aq]\\n\[aq]\ \[aq]~\[aq]\ |\ sed\ \-r\ \[aq]s/([a\-zA\-Z])\\~([a\-zA\-Z])/\\1\ \\2/gp\[aq]\ |\ tr\ \[aq]~\[aq]\ \[aq]\\n\[aq]
+\f[]
+.fi
 .SH AUTHORS
-Serans.
+Miguel Hermo Serans.
