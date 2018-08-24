@@ -1,17 +1,3 @@
-" Requirements:
-"     - powerline fonts
-" Desirable:
-"   git integration
-"     - view state in file explorer
-"     - view state in diff/split window
-"   menu bar with common commands?
-"   command palette a-la vscode
-"     - search for description, find the shortcut
-"     - enter to execute
-"
-
-"""""""""""
-
 """""""""""
 " Plugins "
 """""""""""

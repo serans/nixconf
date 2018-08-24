@@ -130,20 +130,3 @@ let g:airline_right_alt_sep = '⮃'
 " VCS gutter config
 let g:signify_vcs_list = [ 'git', 'svn' ]
 
-""""""""""""""""""
-" Notes and tips "
-""""""""""""""""""
-" Recording
-"  qe (starts recording on register 'e')
-"  (do stuff here)
-"  q (stops recording)
-"
-"  @e (replays commands on register 'e')
-"
-" Wrap text to 80 characters
-"
-"   :set textwidth=80
-"
-"   Then select text, and reformat with
-"   
-"   :gq
