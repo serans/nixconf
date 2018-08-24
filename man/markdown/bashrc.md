@@ -4,11 +4,17 @@
 
 # DESCRIPTION
 
-I have two bashrc file: .bashrc.common and .bashrc.cern
+I divide my bashrc config in several files: 
 
-I include them from each of my computers' ~/.bashrc file (one or both, depending on wether it's a CERN dev machine or not)
+* .bashrc.common : common across all my computers
+* .bashrc.cern : specific stuff for cern machines 
+* I might create more ie: .bashrc.mac, etc.
 
-# FUNCTIONS (COMMON)
+I then include the required .bashrc.xxx file(s) from each of my computer's .bashrc files.
+
+# LOCAL MAN PAGES
+
+Used to document how I use the command line (and more)
 
 **maned [NAME]**
 : Creates or edits the man page with the given [NAME]. Useful to write down examples of how you normally use the commands or as a documentation tool in general. Manpages will be saved in the 'l' (local) section of the manpages.
@@ -16,7 +22,7 @@ I include them from each of my computers' ~/.bashrc file (one or both, depending
 **manls**
 : Lists all custom man pages written.
 
-# FUNCTIONS (CERN)
+# CERN TOOLS
 
 **sshagent_xxxx**
 : These functions check if there's already a ssh agent in the current computer so that we don't have to re-type the ssh key password every time we log in. It's called automatically so we shouldn't care much.

@@ -1,10 +1,8 @@
-% NIXENV(l) UNIX environment
-% Miguel Hermo Serans
-% Aug 2018
+% NIXENV - personal UNIX environment
 
 # NAME
 
-NIXENV stores my configuration for *NIX systems.
+NIXENV stores my configuration for \*NIX systems.
 
 # DESCRIPTION
 
@@ -23,4 +21,4 @@ In order to have my setup synchronized around all my computers, I put all my con
 You can list them via _manls_ and edit/create them with _maned PAGENAME_
 
 **README.md**
-: This file
+: This file. Modify using `maned nixenv` to ensure that the corresponding manpage is updated
