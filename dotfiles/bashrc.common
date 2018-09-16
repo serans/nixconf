@@ -8,11 +8,19 @@ esac
 # ENV #
 #######
 
-export PATH=$PATH:$HOME/cernbox/nixenv/bin
+NIXENV=$HOME/cernbox/nixenv
+
+NIXENV_BINARIES=$NIXENV/bin/$( uname -sp | sed 's/ /\//' )
+
+export PATH=$PATH:$NIXENV/bin/cgi:$NIXENV_BINARIES
 
 #########
 # ALIAS #
 #########
+
+# places
+alias cdme="cd ~/cernbox/me"
+alias cdbe="cd ~/cernbox/be"
 
 # git                                  
                                              
@@ -38,10 +46,6 @@ alias fv='vim $(f)'
 
 alias m="make"
                                              
-# Add an "alert" alias for long running commands.  Use like so: `sleep 10; alert`
-
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 ####################
 # CUSTOM MAN PAGES #
 ####################

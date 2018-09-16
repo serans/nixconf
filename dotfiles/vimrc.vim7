@@ -92,6 +92,9 @@ cabbrev git Vcs
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType Makefile setlocal noexpandtab
 
+" Don't confuse markdown for modula2!
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+
 " Indentation
 set smartindent
 set expandtab

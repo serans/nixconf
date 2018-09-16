@@ -2,6 +2,8 @@
 
 # VIM Tricks
 
+## Installing bundle
+
 ## Nav & selection
 
 - **gv** : Repeat selection

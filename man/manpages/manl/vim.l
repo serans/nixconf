@@ -3,6 +3,7 @@
 .TH "VIM" "" "" "" ""
 .hy
 .SH VIM Tricks
+.SS Installing bundle
 .SS Nav & selection
 .IP \[bu] 2
 \f[B]gv\f[] : Repeat selection

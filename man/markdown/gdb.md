@@ -10,7 +10,7 @@
 
 * [a,r]watch : Break when value is read (rwatch), written (watch) or either (awatch)
 
-* Running commands on breikpoint
+* Running commands on breakpoint
 
 ```
 break foo if x>0
