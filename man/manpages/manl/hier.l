@@ -5,15 +5,43 @@
 .SH Name
 .PP
 hier \[en] layout of the timing system
+.SH Logs
+.SS cbcm (old)
+.PP
+/nfs/cs\-ccr\-ctm/opt/cbcm/wctx/{ENV}/{MACHINE}/{MODE}
+.PP
+Working context containing info about current and past cycles played
+.IP \[bu] 2
+\f[I]ENV\f[] : {OPER,TTB} Environment (operational or test bed)
+.IP \[bu] 2
+\f[I]MACHINE\f[] : {LIC,LN4}
+.IP \[bu] 2
+\f[I]MODE\f[] : {MAIN,LEIALONE,SPSALONE}
+.PP
+Inside we have:
+.IP \[bu] 2
+\f[I]logs/\f[]: sequence manager logs
+.IP \[bu] 2
+\f[I].dat\f[] : java objects containing bcd definitions
+.IP \[bu] 2
+\f[I]stables/\f[] : contains text objects defining bcds and sequences
+.SS cbcm (new)
+.PP
+/nfs/cs\-ccr\-ctm/opt/accsoft\-timing\-cbcm\-server/cbcm\-server/
+.IP \[bu] 2
+log/cbcm.log : seqmanager log
+.SS FESA (cmw)
+.PP
+/nfs/cs\-ccr\-tracing/local/cmw\-log/cmw\-log\-writer/logs
+.PP
+CMW logs.
+One file per fec
 .SH FECs
+.SS Libraries
 .PP
 /usr/local/timdt/ : location of the timdt library/system
-.IP
-.nf
-\f[C]
-\&./timdt\-fwk/timService
-\f[]
-.fi
+.PP
+/usr/local/timdt/timdt\-fwk/timService : timService
 .SH Repos
 .PP
 \f[B]acc\-cpp\f[] : svn+ssh://svn.cern.ch/reps/acc\-cpp/

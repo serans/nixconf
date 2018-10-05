@@ -2,11 +2,48 @@
 
 hier -- layout of the timing system
 
+# Logs
+
+## CT + clock survey
+
+cs-ccr-ctlog /local/ctmlog
+
+## cbcm (old) 
+
+/nfs/cs-ccr-ctm/opt/cbcm/wctx/{ENV}/{MACHINE}/{MODE} 
+
+Working context containing info about current and past cycles played
+
+
+  * _ENV_ : {OPER,TTB} Environment (operational or test bed)
+  * _MACHINE_ : {LIC,LN4}
+  * _MODE_ : {MAIN,LEIALONE,SPSALONE}
+
+Inside we have:
+
+  * _logs/_: sequence manager logs
+  * _.dat_ : java objects containing bcd definitions
+  * _stables/_ : contains text objects defining bcds and sequences
+
+## cbcm (new)
+
+/nfs/cs-ccr-ctm/opt/accsoft-timing-cbcm-server/cbcm-server/
+
+  * log/cbcm.log : seqmanager log
+
+## FESA (cmw)
+
+/nfs/cs-ccr-tracing/local/cmw-log/cmw-log-writer/logs
+
+CMW logs. One file per fec
+
 # FECs
+
+## Libraries
 
 /usr/local/timdt/ : location of the timdt library/system
 
-    ./timdt-fwk/timService
+/usr/local/timdt/timdt-fwk/timService : timService
 
 # Repos
 

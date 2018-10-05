@@ -21,7 +21,7 @@ trace\ child\ processes\
 \f[]
 .fi
 .PP
-**\-e [set of operations]
+\f[B]\-e [set of operations]\f[]
 .IP
 .nf
 \f[C]

@@ -11,7 +11,7 @@
 - **LTIM**         : Local Timing - FESA class that interfaces with the CTRs
 - **MTG**          : Machine Timing Generator
 - **MTT**          : Multitasking timing generator (aka CTGMT ~ Multitask General Machine Timing Card)
-- **PPM**          : Pulse ?? Multiplexing
+- **PPM**          : Pulse-to-Pulse Modulation: Multiplexing where a property can take different values depending on the user
 - **PPS**          : Pulse Per Second - A signal that pulses once per second. It comes from the GPS receiver and it's used when the higher frequency clocks would be inconvenient.
 - **PTIM**         : Peripheral timing. Name of a (non-remote) timing configuration in the CTR.
 - **TN**           : Technical Network. Restricted network where the FECs with control the accelerator's hardware (power converters, klystrons, beam instrumentation, etc.) are connected.- **GPN**          : General Purpose Network. 'Normal' network where office computers are connected to.
