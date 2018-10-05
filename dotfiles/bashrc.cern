@@ -152,7 +152,7 @@ alias bob=/nfs/$VM/opt/mhermose/accsoft-eclipse-pro/binary/binary.contents.7075-
 # Timing Utils #
 ################
 
-export ACC_LIST=lhc,ctf,ade,lin,sps,svc,ln3,tst,lei,cps,lhc,ln4,isp,psb,mcr,svc
+export ACC_LIST=lhc,ctf,ade,lin,sps,svc,ln3,tst,lei,cps,lhc,ln4,psb,mcr,svc
 
 function fec_acc {  
    # Force automount of configuration directories if FEC not found
