@@ -152,40 +152,15 @@ alias bob=/nfs/$VM/opt/mhermose/accsoft-eclipse-pro/binary/binary.contents.7075-
 # Timing Utils #
 ################
 
-export ACC_LIST=lhc,ctf,ade,lin,sps,svc,ln3,tst,lei,cps,lhc,ln4,psb,mcr,svc
+# moved to timtools
 
-function fec_acc {  
-   # Force automount of configuration directories if FEC not found
-   test -d /acc/dsc/src/*/$1 || (ls /acc/dsc/{$ACC_LIST} &> /dev/null)
-   prevdir=$(pwd)
-   cd /acc/dsc/src/*/$1
-   if [[ $? -eq 0 ]]; then 
-      basename $(dirname $(pwd))
-      cd $prevdir
-   fi
-}
-
-function cdfec {
-   acc=$(fec_acc $1)
-   if [[ $acc ]]; then cd /acc/dsc/src/$acc/$1;
-   else echo "ERROR: FEC not found"; fi
-}
-
-function cdfechd {
-   acc=$(fec_acc $1)
-   if [[ $acc ]]; then cd /acc/dsc/$acc/$1;
-   else echo "ERROR: FEC not found"; fi
-}
-
-function rem_ctr { 
-    ssh $1 "echo '$2' | ctrtest-timdt"; 
-}
+source ~/cernbox/be/timtools/bash-extension.sh
 
 #########
 # CONDA #
 #########
 
-alias condaon="source /afs/cern.ch/work/m/mhermose/anaconda3/bin/activate"
+alias conda-bdi="source /user/bdisoft/operational/bin/Python/PRO/bin/activate"
 alias condaoff="conda deactivate"
 
 ###########
