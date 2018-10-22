@@ -8,6 +8,8 @@
 
 - **f[a]** / **F[a]** : Go to next/prev character [a] in line:
 
+- **"[n]** paste history numnber n. View all with _:reg_
+
 ## Navigation
 
 - **C-o** go back

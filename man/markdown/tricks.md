@@ -3,6 +3,10 @@
 
 # COMMAND LINE
 
+- **complete**: complete -W 'list of words' mycommand : adds autocomplete capabilities!
+
+- **fc** : edit last command using $EDITOR
+
 - **ssh hop** : ssh -J lxplus.cern.ch cs-ccr-dev1
 
 - **paste** : merge lines of text

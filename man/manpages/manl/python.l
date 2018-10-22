@@ -4,6 +4,11 @@
 .hy
 .PP
 %PYTHON
+.SH CERN
+.PP
+Bdisoft python installation available in NFS:
+.PP
+/user/bdisoft/operational/bin/Python/PRO/
 .SH DEBUGGING
 .PP
 You can debug a python script by running

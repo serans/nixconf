@@ -6,6 +6,9 @@
 .PP
 hier \[en] layout of the timing system
 .SH Logs
+.SS CT + clock survey
+.PP
+cs\-ccr\-ctlog /local/ctmlog
 .SS cbcm (old)
 .PP
 /nfs/cs\-ccr\-ctm/opt/cbcm/wctx/{ENV}/{MACHINE}/{MODE}
