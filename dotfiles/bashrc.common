@@ -47,7 +47,23 @@ alias fv='vim $(f)'
 # programs
 
 alias m="make"
-                                             
+
+#########
+# UTILS #
+#########
+
+function csview {
+    # https://stackoverflow.com/questions/30981056/linux-shell-csv-viewer-tool-that-can-freeze-the-header
+    vim -R -u NONE -N +'map <right> 2zl
+                        map <left> 2zh
+                        map q :qa<CR>
+                        set nostartofline
+                        se nu sbo=hor scb nowrap
+                        1sp
+                        winc w
+                       ' <(sed -e "s/,,/, ,/g" $1|column -ts,) 
+}
+
 ####################
 # CUSTOM MAN PAGES #
 ####################
