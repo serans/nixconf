@@ -21,28 +21,30 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" File management
+" Files - nerdtree
 Plugin 'scrooloose/nerdtree'
 
-" Multi-cursor
-Plugin 'terryma/vim-multiple-cursors'
-
-" fuzzy search
+" Files - fuzzy search
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
-" Look & Feel
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
-" Show git status in sign column
-Plugin 'mhinz/vim-signify'
-
-" Navigation: easymotion 
+" Navigate - easymotion
 Plugin 'easymotion/vim-easymotion'
+
+" Editor - Multi-cursor
+Plugin 'terryma/vim-multiple-cursors'
 
 " Editor : Tabulator
 Plugin 'godlygeek/tabular'
+
+" Interface - Airline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" Interface - Show git status in sign column
+Plugin 'mhinz/vim-signify'
+
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -89,8 +91,7 @@ command Vcs SignifyRefresh|SignifyToggle
 cabbrev git Vcs
 
 " Launch easymotion bidirectional search
-nmap S <Plug>(easymotion-s)
-nmap s <Plug>(easymotion-bd-w)
+nmap s <Plug>(easymotion-overwin-w)
 
 """"""""""
 " Format "
@@ -126,7 +127,11 @@ colorscheme elflord
 " Use 256 colors
 set t_Co=256
 
-" Make matching parenthesis more visible 
+" Highlight trailing whitespaces
+highlight ExtraWhitespace ctermfg=red guifg=red cterm=underline
+match ExtraWhitespace /\s\+$/
+
+" Make matching parenthesis more visible
 hi MatchParen term=underline cterm=bold
 
 " vim-airline config
