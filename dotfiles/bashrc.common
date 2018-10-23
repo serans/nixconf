@@ -8,13 +8,14 @@ esac
 # ENV #
 #######
 
-NIXENV=$HOME/cernbox/nixenv
+# find NIXENV_HOME root folder
+NIXENV_HOME=$(cd $(dirname "$BASH_SOURCE")/.. > /dev/null && pwd)
 
-NIXENV_BINARIES=$NIXENV/bin/$( uname -sp | sed 's/ /\//' )
+NIXENV_BINARIES=$NIXENV_HOME/bin/$( uname -sp | sed 's/ /\//' )
 
 EDITOR=vim
 
-export PATH=$PATH:$NIXENV/bin/cgi:$NIXENV_BINARIES
+export PATH=$PATH:$NIXENV_HOME/bin/cgi:$NIXENV_BINARIES
 
 #########
 # ALIAS #
@@ -24,9 +25,9 @@ export PATH=$PATH:$NIXENV/bin/cgi:$NIXENV_BINARIES
 alias cdme="cd ~/cernbox/me"
 alias cdbe="cd ~/cernbox/be"
 
-# git                                  
-                                             
-alias ga="git add" 
+# git
+
+alias ga="git add"
 alias gc="git commit"
 alias gs="git status"
 alias gd="git diff"
@@ -72,12 +73,12 @@ function csview {
 # CUSTOM MAN PAGES #
 ####################
 
-CUSTOM_MAN_PAGES=$HOME/cernbox/nixenv/man/manpages
-CUSTOM_MAN_PAGES_MD=$HOME/cernbox/nixenv/man/markdown
+CUSTOM_MAN_PAGES=$NIXENV_HOME/man/manpages
+CUSTOM_MAN_PAGES_MD=$NIXENV_HOME/man/markdown
 export MANPATH=$MANPATH:$CUSTOM_MAN_PAGES
 
 function maned {
-    
+
     markdown_file=$CUSTOM_MAN_PAGES_MD/$1.md
     man_file=$CUSTOM_MAN_PAGES/manl/$1.l
 
