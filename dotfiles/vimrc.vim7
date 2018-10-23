@@ -31,6 +31,10 @@ Plugin 'junegunn/fzf.vim'
 " Navigate - easymotion
 Plugin 'easymotion/vim-easymotion'
 
+" Navigate - incsearch
+"   highlights all search results unlike default's 'set incsearch'
+Plugin 'haya14busa/incsearch.vim'
+
 " Editor - Multi-cursor
 Plugin 'terryma/vim-multiple-cursors'
 
@@ -43,8 +47,6 @@ Plugin 'vim-airline/vim-airline-themes'
 
 " Interface - Show git status in sign column
 Plugin 'mhinz/vim-signify'
-
-
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -68,6 +70,11 @@ set mouse=a
 " case insensitive search if search is lowercase
 set ignorecase
 set smartcase
+
+" Incsearch
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
 
 " Buffer navigation
