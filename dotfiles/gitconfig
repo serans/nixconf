@@ -1,0 +1,25 @@
+[push]
+	default = current
+[pull]
+	default = current
+[core]
+	autocrlf = false
+	editor = vim
+[http]
+	postBuffer = 524288000
+[diff]
+[merge]
+	tool = meld
+[difftool]
+	prompt = false
+[core]
+	editor = vim
+[diff]
+	tool = vimdiff
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
