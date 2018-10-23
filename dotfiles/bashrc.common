@@ -52,6 +52,10 @@ alias m="make"
 # UTILS #
 #########
 
+function mdless {
+    pandoc -t html $1 | lynx -stdin
+}
+
 function csview {
     # https://stackoverflow.com/questions/30981056/linux-shell-csv-viewer-tool-that-can-freeze-the-header
     vim -R -u NONE -N +'map <right> 2zl
