@@ -69,6 +69,12 @@ function csview {
                        ' <(sed -e "s/,,/, ,/g" $1|column -ts,) 
 }
 
+function rmk_upload {
+    # uploads a file to an USB-connected reMarkable
+    file="$1"
+    curl --from "file=@\"$1\"" "http://10.11.99.1/upload"
+}
+
 ####################
 # CUSTOM MAN PAGES #
 ####################
