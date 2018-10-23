@@ -6,7 +6,7 @@
 #######
 
 # for some reason perl breaks if not empty
-export LC_CTYPE=
+#export LC_CTYPE=
 export MANPATH=$MANPATH:/usr/share/man # Add man path (cern's CentOS7 don't seem to get it right)
 
 #######
@@ -97,10 +97,10 @@ alias eclipse="/nfs/$VM/opt/mhermose/accsoft-eclipse-pro/eclipse"
 
 function cdbe { 
     if [ -d /eos/user/m/mhermose/be/ ]
-    then 
-        cd /eos/user/m/mhermose/be/ 
-    else 
-        cd ~/cernbox/be; 
+    then
+        cd /eos/user/m/mhermose/be/
+    else
+        cd ~/cernbox/be;
     fi
 }
 
@@ -167,7 +167,7 @@ alias condaoff="conda deactivate"
 # Startup #
 ###########
 
-sshagent_init
+sshagent_init 2>&1 > /dev/null
 
 # mount EOS (cernbox) if possible
 test -d /eos/user/m/mhermose/ || {
