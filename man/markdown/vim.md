@@ -18,6 +18,10 @@
 
 - **;** / **,** : Repeat last operation forward/backwards
 
+## Editing
+
+C-n: Launches multi-cursor plugin
+
 ## Tags
 
 More info using _:help tagstack_
