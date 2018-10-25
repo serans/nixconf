@@ -1,13 +1,6 @@
-" (Doc in .vimrc.vim8)
-"""""""""""
-" to check: real time pattern matching https://github.com/haya14busa/incsearch.vim
-" to check: easymotion
-" to check: vim-multiple-cursors
-" 
 " to do: modified buffers: do not color in black!
-"
 " to do: update ctags in the background
-"
+
 """""""""""
 " Plugins "
 """""""""""
@@ -21,32 +14,47 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" Files - nerdtree
-Plugin 'scrooloose/nerdtree'
+" Files
+" ~~~~~
 
-" Files - fuzzy search
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
+    " Nerdtree
+    Plugin 'scrooloose/nerdtree'
 
-" Navigate - easymotion
-Plugin 'easymotion/vim-easymotion'
+    " Fuzzy search
+    Plugin 'junegunn/fzf'
+    Plugin 'junegunn/fzf.vim'
 
-" Navigate - incsearch
-"   highlights all search results unlike default's 'set incsearch'
-Plugin 'haya14busa/incsearch.vim'
 
-" Editor - Multi-cursor
-Plugin 'terryma/vim-multiple-cursors'
+" Navigation
+" ~~~~~~~~~~
 
-" Editor : Tabulator
-Plugin 'godlygeek/tabular'
+    " Easymotion
+    Plugin 'easymotion/vim-easymotion'
 
-" Interface - Airline
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+    " Incsearch
+    "   highlights all search results unlike default's 'set incsearch'
+    Plugin 'haya14busa/incsearch.vim'
 
-" Interface - Show git status in sign column
-Plugin 'mhinz/vim-signify'
+
+" Editor
+" ~~~~~~
+
+    " Multi-cursor
+    Plugin 'terryma/vim-multiple-cursors'
+
+    " Tabular - align text
+    Plugin 'godlygeek/tabular'
+
+
+" User Interface
+" ~~~~~~~~~~~~~~
+
+    " Airline
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+
+    " Show git status in sign column
+    Plugin 'mhinz/vim-signify'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -82,7 +90,7 @@ nnoremap . :bnext<CR>
 nnoremap , :bprev<CR>
 
 " NERDTree toggle
-map <C-r> :NERDTreeToggle<CR>
+map <Leader>e :NERDTreeToggle<CR>
 
 " Launch fzf
 map <C-f> :call fzf#vim#files("", fzf#vim#with_preview())<CR>
@@ -93,8 +101,8 @@ map <C-a> :NERDTreeClose <bar> %bd <bar> e# <bar> bd# <CR>
 " Close current buffer <C-q>
 map <C-q> :bp\|bd #<CR>
 
-" Toggle git gutter
-command Vcs SignifyRefresh|SignifyToggle
+" :git - Toggle git gutter
+command! Vcs SignifyRefresh|SignifyToggle
 cabbrev git Vcs
 
 " Launch easymotion bidirectional search
@@ -145,14 +153,13 @@ hi MatchParen term=underline cterm=bold
 let g:airline#extensions#tabline#enabled    = 1
 let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#tabline#formatter  = 'unique_tail' "_improved'
-let g:airline_theme='alduin'
+let g:airline_theme='solarized'
 
-let g:airline_powerline_fonts=1
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
+let g:airline_powerline_fonts=0
+"let g:airline_left_sep = '⮀'
+"let g:airline_left_alt_sep = '⮁'
+"let g:airline_right_sep = '⮂'
+"let g:airline_right_alt_sep = '⮃'
 
 " VCS gutter config
 let g:signify_vcs_list = [ 'git', 'svn' ]
-
