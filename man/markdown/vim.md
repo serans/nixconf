@@ -2,6 +2,12 @@
 
 # VIM Tricks
 
+## Vimdiff
+
+- ]c          - next difference
+- [c          - previous difference
+- :diffupdate - rescan the files for differences
+
 ## Selection
 
 - **gv** : Repeat selection

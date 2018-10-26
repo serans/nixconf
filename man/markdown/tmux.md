@@ -1,5 +1,10 @@
 %TMUX
 
+# Copy mode:
+
+   - Enter copy mode: <Prefix> [
+   - Paste: <C-]>
+
 # Examples
 
 - **Dettach clients**:

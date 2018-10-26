@@ -2,6 +2,11 @@
 .\"
 .TH "TMUX" "" "" "" ""
 .hy
+.SH Copy mode:
+.IP \[bu] 2
+Enter copy mode: [
+.IP \[bu] 2
+Paste: <C\-]>
 .SH Examples
 .IP \[bu] 2
 \f[B]Dettach clients\f[]:
