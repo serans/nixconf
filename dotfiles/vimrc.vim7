@@ -59,6 +59,11 @@ Plugin 'VundleVim/Vundle.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+"""""""""""
+" Editing "
+"""""""""""
+
+set backspace=indent,eol,start
 
 """""""""
 " Files "
@@ -119,6 +124,10 @@ autocmd FileType Makefile setlocal noexpandtab
 " Don't confuse markdown for modula2!
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 
+" Don't show line numbers for text files
+autocmd BufNewFile,BufRead *.md set nonumber
+autocmd BufNewFile,BufRead *.txt set nonumber
+
 " Indentation
 set smartindent
 set expandtab
@@ -152,8 +161,8 @@ hi MatchParen term=underline cterm=bold
 " vim-airline config
 let g:airline#extensions#tabline#enabled    = 1
 let g:airline#extensions#bufferline#enabled = 1
-let g:airline#extensions#tabline#formatter  = 'unique_tail' "_improved'
-let g:airline_theme='solarized'
+let g:airline#extensions#tabline#formatter  = 'unique_tail'
+let g:airline_theme='understated'
 
 let g:airline_powerline_fonts=0
 "let g:airline_left_sep = '⮀'
