@@ -72,7 +72,8 @@ function csview {
 function rmk_upload {
     # uploads a file to an USB-connected reMarkable
     file="$1"
-    curl --from "file=@\"$1\"" "http://10.11.99.1/upload"
+    curl --form "file=@\"$1\"" "http://10.11.99.1/upload"
+
 }
 
 ####################
