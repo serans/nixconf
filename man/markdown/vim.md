@@ -28,6 +28,14 @@
 
 C-n: Launches multi-cursor plugin
 
+## Spellcheck
+
+- **:setlocal spell spellang=en\_UK** turns spell checking on
+- **]s**/**]s** prev/next misspelling
+- **zg** add word to spellfile
+- **z=** show suggestions
+- **<C-x> s** show suggestions in insert mode
+
 ## Tags
 
 More info using _:help tagstack_
