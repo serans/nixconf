@@ -2,6 +2,21 @@
 
 hier -- layout of the timing system
 
+# TN Directories
+
+/acc/src/ : ???????????
+
+/acc/local/share/makefile-generic : Makefile Generic
+
+/acc/dsc/src/XXX/fec-name : fec configuration
+/acc/dsc/XXX/fec-name     : mounted as HD of the fec
+
+# Stuff inside FEC
+
+/usr/local/timdt/ : location of the timdt library/system
+
+/usr/local/timdt/timdt-fwk/timService : timService
+
 # Logs
 
 ## CT + clock survey
@@ -36,14 +51,6 @@ Inside we have:
 /nfs/cs-ccr-tracing/local/cmw-log/cmw-log-writer/logs
 
 CMW logs. One file per fec
-
-# FECs
-
-## Libraries
-
-/usr/local/timdt/ : location of the timdt library/system
-
-/usr/local/timdt/timdt-fwk/timService : timService
 
 # Repos
 
