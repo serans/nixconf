@@ -1,5 +1,8 @@
-" to do: modified buffers: do not color in black!
-" to do: update ctags in the background
+" TO DO :
+"  - colorscheme flatwhite
+"  - ale (linter)
+"  - vim autoformat custom formatter, autoformat on save
+"  - interesting? argwrap, mucompletion
 
 """""""""""
 " Plugins "
@@ -17,78 +20,94 @@ Plugin 'VundleVim/Vundle.vim'
 " Files
 " ~~~~~
 
-    " Nerdtree
     Plugin 'scrooloose/nerdtree'
-
-    " Fuzzy search
-    Plugin 'junegunn/fzf'
+    Plugin 'junegunn/fzf' "fuzzy search
     Plugin 'junegunn/fzf.vim'
 
 
 " Navigation
 " ~~~~~~~~~~
 
-    " Easymotion
     Plugin 'easymotion/vim-easymotion'
-
-    " Incsearch
-    "   highlights all search results unlike default's 'set incsearch'
     Plugin 'haya14busa/incsearch.vim'
 
 
 " Editor
 " ~~~~~~
 
-    " Multi-cursor
     Plugin 'terryma/vim-multiple-cursors'
-
-    " Tabular - align text
     Plugin 'godlygeek/tabular'
-
 
 " User Interface
 " ~~~~~~~~~~~~~~
 
-    " Airline
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
-
-    " Show git status in sign column
-    Plugin 'mhinz/vim-signify'
+    Plugin 'mhinz/vim-signify' "git/vcs gutter
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-"""""""""""
-" Editing "
-"""""""""""
-
-set backspace=indent,eol,start
-
-"""""""""
-" Files "
-"""""""""
-
+"""""""
+" Vim "
+"""""""
 set encoding=utf8
-
-" Crypto : (no blowfish2 -unavailable in this version-)
+set autoread
+set autowriteall
 set cm=blowfish
 
-""""""""""""""
-" Navigation "
-""""""""""""""
+" backup to ~/.vim
+set undodir=~/.vim/undo//
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
 
-set mouse=a
-
-" case insensitive search if search is lowercase
+" input
+set backspace=indent,eol,start "needed in mac
 set ignorecase
 set smartcase
+set mouse=a
+
+" Indentation
+set smartindent
+set expandtab
+set shiftwidth=4
+set tabstop=4
+
+" look
+set t_Co=256
+set background=dark
+set ruler
+set number
+set showmode
+set showcmd
+set hidden  "Show hidden buffers
+syntax on
+colorscheme elflord
+
+" Highlight trailing whitespaces
+highlight ExtraWhitespace ctermfg=red guifg=red cterm=underline
+match ExtraWhitespace /\s\+$/
+
+" Make matching parenthesis more visible
+hi MatchParen term=underline cterm=bold
+
+" Don't confuse markdown for modula2!
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.md,*.txt set nonumber
+
+" Mappings
+"""""""""""
+
+cabbrev h vert help
+
+" Scroll using Control + jk
+map <C-j> <C-d>
+map <C-k> <C-u>
 
 " Incsearch
 map / <Plug>(incsearch-forward)
 map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
-
 
 " Buffer navigation
 nnoremap . :bnext<CR>
@@ -113,62 +132,16 @@ cabbrev git Vcs
 " Launch easymotion bidirectional search
 nmap s <Plug>(easymotion-overwin-w)
 
-""""""""""
-" Format "
-""""""""""
+" Plugin Config
+"""""""""""""""
 
-" Per-language config
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
-autocmd FileType Makefile setlocal noexpandtab
+let g:EasyMotion_keys = 'asdflkjhgqweroiuytzxcvbnmp'
 
-" Don't confuse markdown for modula2!
-autocmd BufNewFile,BufRead *.md set filetype=markdown
-
-" Don't show line numbers for text files
-autocmd BufNewFile,BufRead *.md set nonumber
-autocmd BufNewFile,BufRead *.txt set nonumber
-
-" Indentation
-set smartindent
-set expandtab
-set shiftwidth=4
-set tabstop=4
-
-"""""""""""
-" Visuals "
-"""""""""""
-
-set background=dark
-set ruler
-set autoread
-set number
-set showmode
-set showcmd
-set hidden  "Show hidden buffers
-syntax on
-colorscheme elflord
-
-" Use 256 colors
-set t_Co=256
-
-" Highlight trailing whitespaces
-highlight ExtraWhitespace ctermfg=red guifg=red cterm=underline
-match ExtraWhitespace /\s\+$/
-
-" Make matching parenthesis more visible
-hi MatchParen term=underline cterm=bold
-
-" vim-airline config
 let g:airline#extensions#tabline#enabled    = 1
 let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#tabline#formatter  = 'unique_tail'
 let g:airline_theme='understated'
 
 let g:airline_powerline_fonts=0
-"let g:airline_left_sep = '⮀'
-"let g:airline_left_alt_sep = '⮁'
-"let g:airline_right_sep = '⮂'
-"let g:airline_right_alt_sep = '⮃'
 
-" VCS gutter config
 let g:signify_vcs_list = [ 'git', 'svn' ]
