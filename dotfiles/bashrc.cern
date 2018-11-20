@@ -95,7 +95,7 @@ alias cdtracing="cd /nfs/cs-ccr-tracing/local/cmw-log/cmw-log-writer/logs/"
 alias cdsrc="cd /nfs/$VM/opt/mhermose/src"
 alias eclipse="/nfs/$VM/opt/mhermose/accsoft-eclipse-pro/eclipse"
 
-function cdbe { 
+function cdbe {
     if [ -d /eos/user/m/mhermose/be/ ]
     then
         cd /eos/user/m/mhermose/be/
@@ -160,6 +160,7 @@ source ~/cernbox/be/timtools/bash-extension.sh
 # CONDA #
 #########
 
+alias conda-me="source $HOME/work/anaconda3/bin/activate"
 alias conda-bdi="source /user/bdisoft/operational/bin/Python/PRO/bin/activate"
 alias condaoff="conda deactivate"
 
