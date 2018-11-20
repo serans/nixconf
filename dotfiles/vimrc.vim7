@@ -24,6 +24,10 @@ Plugin 'VundleVim/Vundle.vim'
     Plugin 'junegunn/fzf' "fuzzy search
     Plugin 'junegunn/fzf.vim'
 
+" Rust programming language integration
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Plugin 'rust-lang/rust.vim'
 
 " Navigation
 " ~~~~~~~~~~
