@@ -4,6 +4,10 @@ hier -- layout of the timing system
 
 # TN Directories
 
+/user/pcrops/deployments/applications/cern/ : TN applications
+
+    - fesa/Navigator
+
 /acc/src/ : ???????????
 
 /acc/local/share/makefile-generic : Makefile Generic

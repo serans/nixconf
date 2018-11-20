@@ -2,7 +2,7 @@
 
 ## Example
 
-* strace -f -e=execve -- wreboot -N LTIM_DU_M
+* strace -f -e trace=execve -- wreboot -N LTIM_DU_M
 
   Shows all processes started by wreboot, useful to see which executable it's being actually executed
 
@@ -14,7 +14,7 @@
 
 **-f**
     
-    trace child processes 
+    trace child processes
 
 **-e trace=[set of operations]**
 

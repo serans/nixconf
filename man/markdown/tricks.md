@@ -47,6 +47,11 @@ function read_ltims()
 
 # TROUBLESHOTING
 
+## NS_ERROR in firefox
+
+    localStorage.clear()
+    sessionStorage.clear()
+
 ## Common hardware problems
 
 - **easypen  M406** : cursor moves but no 'click'
