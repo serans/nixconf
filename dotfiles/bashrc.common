@@ -9,7 +9,7 @@ esac
 #######
 
 # find NIXENV_HOME root folder
-NIXENV_HOME=$(cd $(dirname "$BASH_SOURCE")/.. > /dev/null && pwd)
+export NIXENV_HOME=$(cd $(dirname "$BASH_SOURCE")/.. > /dev/null && pwd)
 
 NIXENV_BINARIES=$NIXENV_HOME/bin/$( uname -sp | sed 's/ /\//' )
 
@@ -178,7 +178,7 @@ function __prompt_command() {
     local error;
 
     if [ $ERRNO != 0 ]; then
-        error="${C_Red}=${EXIT}${C_End} "
+        error="${C_Red}=${ERRNO}${C_End} "
     fi
 
     PS1="\n[${error}${C_Cyan}\u${C_End}@${C_Blue}\h ${C_End}\w]\n$ "

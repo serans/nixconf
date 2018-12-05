@@ -93,7 +93,7 @@ highlight ExtraWhitespace ctermfg=red guifg=red cterm=underline
 match ExtraWhitespace /\s\+$/
 
 " Make matching parenthesis more visible
-hi MatchParen term=underline cterm=bold
+highlight MatchParen term=underline,bold cterm=underline,bold ctermbg=none ctermfg=white
 
 " Don't confuse markdown for modula2!
 autocmd BufNewFile,BufRead *.md set filetype=markdown
