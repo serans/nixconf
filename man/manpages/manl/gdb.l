@@ -4,6 +4,8 @@
 .hy
 .SH EXAMPLES
 .IP \[bu] 2
+launch with args: gdb \[en]args executable arg1 arg2 \&...
+.IP \[bu] 2
 Set layout: \f[C]layout\f[]
 .IP \[bu] 2
 send output to different console \f[C]tty\ /dev/pts/1\f[]

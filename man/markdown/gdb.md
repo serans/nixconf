@@ -2,6 +2,8 @@
 
 # EXAMPLES
 
+* launch with args: gdb --args executable arg1 arg2 ...
+
 * Set layout: `layout`
 
 * send output to different console `tty /dev/pts/1`
