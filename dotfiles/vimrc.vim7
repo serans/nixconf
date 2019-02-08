@@ -149,3 +149,12 @@ let g:airline_theme='understated'
 let g:airline_powerline_fonts=0
 
 let g:signify_vcs_list = [ 'git', 'svn' ]
+
+" Colorscheme for difftool
+""""""""""""""""""""""""""
+if &diff
+    highlight   DiffAdd      cterm=none   ctermfg=none ctermbg=16
+    highlight   DiffChange   cterm=none   ctermfg=none ctermbg=none
+    highlight   DiffDelete   cterm=none   ctermfg=160  ctermbg=none
+    highlight   DiffText     cterm=none   ctermfg=none  ctermbg=16
+endif
