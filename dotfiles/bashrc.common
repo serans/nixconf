@@ -26,7 +26,6 @@ alias cdme="cd ~/cernbox/me"
 alias cdbe="cd ~/cernbox/be"
 
 # git
-
 alias ga="git add"
 alias gc="git commit"
 alias gs="git status"
@@ -34,23 +33,22 @@ alias gd="git diff"
 alias gdt="git difftool --tool=vimdiff --no-prompt"
 
 # ls
-
-alias ls='ls -G'
+alias ls='ls -G --color=auto'
 alias ll="ls -GAlh"
 alias la='ls -A'
 alias l='ls -CF'
 
 # search / file explore
-
 alias f='fzf --preview="cat {}"'
 alias fv='vim $(f)'
 
 # programs
-
 alias m="make"
 
-# Silly services
+# Misc
+alias conomicon="vim ~/cernbox/me/conomicon"
 
+# Silly services
 weather () { curl wttr.in/"$@"; }
 
 dict() {

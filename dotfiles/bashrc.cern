@@ -91,9 +91,10 @@ alias win="xfreerdp --no-nla --ignore-certificate --plugin cliprdr -g 1900x1150 
 
 alias cdafs="cd /afs/cern.ch/user/m/mhermose/"
 alias cdnfs="cd /user/mhermose/"
-alias cdtracing="cd /nfs/cs-ccr-tracing/local/cmw-log/cmw-log-writer/logs/"
-alias cdsrc="cd /nfs/$VM/opt/mhermose/src"
-alias eclipse="/nfs/$VM/opt/mhermose/accsoft-eclipse-pro/eclipse"
+#alias cdtracing="cd /nfs/cs-ccr-tracing/local/cmw-log/cmw-log-writer/logs/"
+alias cdwe="cd /nfs/$VM/opt/mhermose/workspaces/test1"
+alias eclipse="$HOME/accsoft-eclipse-pro/eclipse"
+alias cdmigrations="cd $HOME/work/git/timing/utils/ltim_migration"
 
 function cdbe {
     if [ -d /eos/user/m/mhermose/be/ ]
