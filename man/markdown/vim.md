@@ -2,12 +2,6 @@
 
 # VIM Tricks
 
-## Vimdiff
-
-- ]c          - next difference
-- [c          - previous difference
-- :diffupdate - rescan the files for differences
-
 ## Selection
 
 - **gv** : Repeat selection
@@ -16,6 +10,8 @@
 
 - **"[n]** paste history numnber n. View all with _:reg_
 
+- **C-R "** paste in command mode (can use register number instead of ")
+
 ## Navigation
 
 - **C-o** go back
@@ -23,6 +19,11 @@
 - **C-i** go forward
 
 - **;** / **,** : Repeat last operation forward/backwards
+
+## Diff
+
+- **zR** expand all folds
+- **za** contract folds
 
 ## Editing
 
@@ -49,3 +50,10 @@ More info using _:help tagstack_
 - **q[e]** : starts recording on register "e"
 - then do whatever commands you want
 - **q** stops recording
+
+## Vimdiff
+
+- ]c          - next difference
+- [c          - previous difference
+- :diffupdate - rescan the files for differences
+
