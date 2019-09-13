@@ -10,20 +10,18 @@ esac
 
 # find NIXENV_HOME root folder
 export NIXENV_HOME=$(cd $(dirname "$BASH_SOURCE")/.. > /dev/null && pwd)
+export DOTFILES=$NIXENV_HOME/dotfiles
 
+NIXENV_CGI=$NIXENV_HOME/bin/cgi/
 NIXENV_BINARIES=$NIXENV_HOME/bin/$( uname -sp | sed 's/ /\//' )
+export PATH=$PATH:$NIXENV_CGI:$NIXENV_BINARIES:$
 
-EDITOR=vim
 
-export PATH=$PATH:$NIXENV_HOME/bin/cgi:$NIXENV_BINARIES
+export EDITOR=vim
 
 #########
 # ALIAS #
 #########
-
-# places
-alias cdme="cd ~/cernbox/me"
-alias cdbe="cd ~/cernbox/be"
 
 # git
 alias ga="git add"
@@ -44,9 +42,6 @@ alias fv='vim $(f)'
 
 # programs
 alias m="make"
-
-# Misc
-alias conomicon="vim ~/cernbox/me/conomicon"
 
 # Silly services
 weather () { curl wttr.in/"$@"; }
@@ -170,17 +165,18 @@ shopt -s checkwinsize
 # esac
 
 #Prompt
-export PROMPT_COMMAND=__prompt_command
-function __prompt_command() {
-    local ERRNO="$?"
-    local error;
-
-    if [ $ERRNO != 0 ]; then
-        error="${C_Red}=${ERRNO}${C_End} "
-    fi
-
-    PS1="\n[${error}${C_Cyan}\u${C_End}@${C_Blue}\h ${C_End}\w]\n$ "
-}
+PS1="\n[\u@\h \w]\n$ "
+export PROMPT_COMMAND=
+#function __prompt_command() {
+#    local ERRNO="$?"
+#    local error;
+#
+#    if [ $ERRNO != 0 ]; then
+#        error="${C_Red}=${ERRNO}${C_End} "
+#    fi
+#
+#    PS1="\n[${error}${C_Cyan}\u${C_End}@${C_Blue}\h ${C_End}\w]\n$ "
+#}
 
 # enable color support of ls and also add handy aliases
 #if [ -x /usr/bin/dircolors ]; then

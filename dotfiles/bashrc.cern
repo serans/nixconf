@@ -85,6 +85,10 @@ function sshagent_init {
 #########
 
 export VM=cwe-513-vol736
+# places
+alias cdlocal="cd /home/mhermose"
+alias cdme="cd /home/mhermose/cernbox/me"
+alias cdbe="cd ~/cernbox/be"
 
 # locations
 alias win="xfreerdp --no-nla --ignore-certificate --plugin cliprdr -g 1900x1150 -u mhermose -d CERN cernts"
@@ -124,7 +128,8 @@ alias f2nav="/mcr/bin/javaws /acc/local/java/fesa/CURRENT_RELEASE/FNT.jnlp"
 alias cmwadmin="/mcr/bin/javaws http://slwww.cern.ch/~pcrops/releaseinfo/pcropsdist/cmw/cmw-admin/PRO/cmw-admin.jnlp"
 
 # FESA3 Navigator
-alias fnav="/user/pcrops/deployments/applications/cern/fesa/Navigator/PRO/source/runFESA3NavigatorLauncher"
+#alias fnav="/user/pcrops/deployments/applications/cern/fesa/Navigator/PRO/source/runFESA3NavigatorLauncher"
+alias fnav="/user/pcrops/deployments/applications/cern/fesa/Navigator/PRO/source/runFESA3Navigator"
 
 # DIAMON
 alias diamon="/mcr/bin/javaws http://bewww.cern.ch/~diamonop/dmn2-gui-console/cgi-bin/dmn2-console-pro.jnlpx"

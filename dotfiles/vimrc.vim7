@@ -39,6 +39,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Editor
 " ~~~~~~
 
+    Plugin 'stephpy/vim-yaml' "default yaml has wrong syntax highlighting
     Plugin 'terryma/vim-multiple-cursors'
     Plugin 'godlygeek/tabular'
 
@@ -114,8 +115,8 @@ map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
 " Buffer navigation
-nnoremap . :bnext<CR>
-nnoremap , :bprev<CR>
+nnoremap = :bnext<CR>
+nnoremap - :bprev<CR>
 
 " NERDTree toggle
 map <Leader>e :NERDTreeToggle<CR>
@@ -134,7 +135,8 @@ command! Vcs SignifyRefresh|SignifyToggle
 cabbrev git Vcs
 
 " Launch easymotion bidirectional search
-nmap s <Plug>(easymotion-overwin-w)
+" nmap s <Plug>(easymotion-overwin-w)
+nmap s <Plug>(easymotion-bd-w)
 
 " Plugin Config
 """""""""""""""

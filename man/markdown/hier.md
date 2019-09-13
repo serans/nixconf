@@ -2,24 +2,26 @@
 
 hier -- layout of the timing system
 
-# TN Directories
-
-/user/pcrops/deployments/applications/cern/ : TN applications
-
-    - fesa/Navigator
-
-/acc/src/ : ???????????
-
-/acc/local/share/makefile-generic : Makefile Generic
-
-/acc/dsc/src/XXX/fec-name : fec configuration
-/acc/dsc/XXX/fec-name     : mounted as HD of the fec
-
 # Stuff inside FEC
 
 /usr/local/timdt/ : location of the timdt library/system
-
 /usr/local/timdt/timdt-fwk/timService : timService
+
+# Scripts
+
+- Database access: /acc/local/Linux/database/xmlconfig/.ccdb
+
+# TN Directories
+
+- /user/pcrops/deployments/applications/cern/ : TN applications
+- /acc/dsc/src/XXX/fec-name : fec configuration
+- /acc/dsc/XXX/fec-name     : mounted as HD of the fec
+- /acc/dsc/oper/data/timing/ocbcm/ : timing events/telegram configuration read by timService
+
+# Stuff inside FEC
+
+- /usr/local/timdt/ : location of the timdt library/system
+- /usr/local/timdt/timdt-fwk/timService : timService
 
 # Logs
 
@@ -27,7 +29,13 @@ hier -- layout of the timing system
 
 cs-ccr-ctlog /local/ctmlog
 
-## cbcm (old) 
+## cbcm (new)
+
+/nfs/cs-ccr-ctm/opt/accsoft-timing-cbcm-server/cbcm-server/
+
+  * log/cbcm.log : seqmanager log
+
+## cbcm (old)
 
 /nfs/cs-ccr-ctm/opt/cbcm/wctx/{ENV}/{MACHINE}/{MODE} 
 

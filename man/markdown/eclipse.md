@@ -17,4 +17,8 @@ window > preferences > General > keys
 
 # Config
 
+## Enabling c++14
 
+- https://stackoverflow.com/questions/13635079/enable-c11-in-eclipse-cdt-juno-kepler-luna-indexer
+
+properties -> c++ general -> preprocessor -> providers -> add "-std=c++14" to command input box
