@@ -18,6 +18,7 @@ export PATH=$PATH:$NIXENV_CGI:$NIXENV_BINARIES:$
 
 
 export EDITOR=vim
+export TIME_STYLE=long-iso
 
 #########
 # ALIAS #
