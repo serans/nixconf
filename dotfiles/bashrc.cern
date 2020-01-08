@@ -5,8 +5,12 @@
 # ENV #
 #######
 
+TIMING_REPO=~/work/git/timing
+
+export PATH=~/bin/:$TIMING_REPO/utils/ltim_migration/python:$PATH
+
 # for some reason perl breaks if not empty
-#export LC_CTYPE=
+export LANG=
 export MANPATH=$MANPATH:/usr/share/man # Add man path (cern's CentOS7 don't seem to get it right)
 
 #######
