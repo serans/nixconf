@@ -24,6 +24,10 @@ export TIME_STYLE=long-iso
 # ALIAS #
 #########
 
+# cern vm vnc tunnel
+# - This allows connecting the VM vnc server from outside CERN
+alias vnctunnel="ssh -f -L 5901:cwe-513-vol736.cern.ch:5901 lxplus7.cern.ch -N"
+
 # git
 alias ga="git add"
 alias gc="git commit"
