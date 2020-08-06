@@ -123,6 +123,9 @@ function cdbe {
 
 alias sql="rlwrap sqlplus"
 
+# Firefox nightly (fixes render freezing in firefox 79)
+alias firefox-nightly="/opt/mhermose/bin/firefox-nightly/firefox"
+
 # FESA2 device management tool
 alias f2dev="/mcr/bin/javaws /acc/local/java/fesa/CURRENT_RELEASE/FMT.jnlp"
 
