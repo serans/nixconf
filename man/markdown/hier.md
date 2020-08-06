@@ -29,12 +29,6 @@ hier -- layout of the timing system
 
 cs-ccr-ctlog /local/ctmlog
 
-## cbcm (new)
-
-/nfs/cs-ccr-ctm/opt/accsoft-timing-cbcm-server/cbcm-server/
-
-  * log/cbcm.log : seqmanager log
-
 ## cbcm (old)
 
 /nfs/cs-ccr-ctm/opt/cbcm/wctx/{ENV}/{MACHINE}/{MODE} 

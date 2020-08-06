@@ -15,7 +15,7 @@ export DOTFILES=$NIXENV_HOME/dotfiles
 # PATH
 NIXENV_CGI=$NIXENV_HOME/bin/cgi/
 NIXENV_BINARIES=$NIXENV_HOME/bin/$( uname -sp | sed 's/ /\//' )
-export PATH=$PATH:$NIXENV_CGI:$NIXENV_BINARIES:$
+export PATH=$NIXENV_CGI:$NIXENV_BINARIES:$PATH
 
 # preferences
 export EDITOR=vim

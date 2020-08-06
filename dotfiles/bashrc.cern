@@ -13,6 +13,10 @@ export PATH=~/bin/:$TIMING_REPO/utils/ltim_migration/python:$PATH
 export LANG=
 export MANPATH=$MANPATH:/usr/share/man # Add man path (cern's CentOS7 don't seem to get it right)
 
+# For NXCALS
+export JAVA_HOME=/usr/java/jdk1.8
+export PATH=$JAVA_HOME/bin:$PATH
+
 #######
 # SSH #
 #######
@@ -127,9 +131,6 @@ alias f2sh="/mcr/bin/javaws /acc/local/java/fesa/CURRENT_RELEASE/FST.jnlp"
 
 # FESA2 Navigator
 alias f2nav="/mcr/bin/javaws /acc/local/java/fesa/CURRENT_RELEASE/FNT.jnlp"
-
-# CMW admin
-alias cmwadmin="/mcr/bin/javaws http://slwww.cern.ch/~pcrops/releaseinfo/pcropsdist/cmw/cmw-admin/PRO/cmw-admin.jnlp"
 
 # FESA3 Navigator
 #alias fnav="/user/pcrops/deployments/applications/cern/fesa/Navigator/PRO/source/runFESA3NavigatorLauncher"

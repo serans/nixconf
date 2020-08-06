@@ -1,0 +1,11 @@
+#!/bin/sh
+echo "- Adjusting brighness"
+echo "  (default brightness saturates the monitor)"
+
+xrandr --output DP-1 --brightness 0.95
+xrandr --output DP-2 --brightness 0.95
+
+echo "- Setting left-handed mouse"
+xmodmap -e "pointer = 3 2 1"
+
+# you can check the input with `xev`

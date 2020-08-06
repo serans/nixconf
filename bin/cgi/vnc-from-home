@@ -1,0 +1,9 @@
+#!/bin/sh
+
+VM="cwe-513-vol736"
+PORT=5901
+
+ssh -L ${PORT}:${VM}.cern.ch:${PORT} mhermose@lxplus7.cern.ch -N
+
+echo "You can connect to your VM ${VM} via"
+echo "localhost:${PORT}"
