@@ -17,6 +17,10 @@ export MANPATH=$MANPATH:/usr/share/man # Add man path (cern's CentOS7 don't seem
 export JAVA_HOME=/usr/java/jdk1.8
 export PATH=$JAVA_HOME/bin:$PATH
 
+# python
+source /acc/local/share/python/acc-py/pro/setup.sh 2> /dev/null
+
+
 #######
 # SSH #
 #######
