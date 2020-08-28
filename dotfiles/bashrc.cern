@@ -1,6 +1,5 @@
 # bashrc file for CERN dev computers
 
-
 #######
 # ENV #
 #######
@@ -18,7 +17,7 @@ export JAVA_HOME=/usr/java/jdk1.8
 export PATH=$JAVA_HOME/bin:$PATH
 
 # python
-source /acc/local/share/python/acc-py/pro/setup.sh > /dev/null 2>&1
+#source /acc/local/share/python/acc-py/pro/setup.sh > /dev/null 2>&1
 
 
 #######
@@ -97,34 +96,23 @@ function sshagent_init {
 #########
 
 export VM=cwe-513-vol736
-# places
+
 alias cdlocal="cd /home/mhermose"
-alias cdme="cd /home/mhermose/cernbox/me"
-alias cdbe="cd ~/cernbox/be"
-
-# locations
-alias win="xfreerdp --no-nla --ignore-certificate --plugin cliprdr -g 1900x1150 -u mhermose -d CERN cernts"
-
 alias cdafs="cd /afs/cern.ch/user/m/mhermose/"
+alias cdbe="cd ~/cernbox/be"
+alias cdme="cd /home/mhermose/cernbox/me"
 alias cdnfs="cd /user/mhermose/"
-#alias cdtracing="cd /nfs/cs-ccr-tracing/local/cmw-log/cmw-log-writer/logs/"
-alias cdwe="cd /nfs/$VM/opt/mhermose/workspaces/test1"
-alias eclipse="$HOME/accsoft-eclipse-pro/eclipse"
 alias cdmigrations="cd $HOME/work/git/timing/utils/ltim_migration"
-
-function cdbe {
-    if [ -d /eos/user/m/mhermose/be/ ]
-    then
-        cd /eos/user/m/mhermose/be/
-    else
-        cd ~/cernbox/be;
-    fi
-}
 
 ############
 # programs #
 ############
+alias volume="pavucontrol"
 
+alias win="xfreerdp --no-nla --ignore-certificate --plugin cliprdr -g 1900x1150 -u mhermose -d CERN cernts"
+
+alias eclipse="$HOME/accsoft-eclipse-pro/eclipse"
+alias pycharm="/acc/local/share/python/pycharm/zkovari/PRO/bin/pycharm.sh"
 alias sql="rlwrap sqlplus"
 
 # Firefox nightly (fixes render freezing in firefox 79)
@@ -139,31 +127,14 @@ alias f2sh="/mcr/bin/javaws /acc/local/java/fesa/CURRENT_RELEASE/FST.jnlp"
 # FESA2 Navigator
 alias f2nav="/mcr/bin/javaws /acc/local/java/fesa/CURRENT_RELEASE/FNT.jnlp"
 
-# FESA3 Navigator
-#alias fnav="/user/pcrops/deployments/applications/cern/fesa/Navigator/PRO/source/runFESA3NavigatorLauncher"
+# BE tools
 alias fnav="/user/pcrops/deployments/applications/cern/fesa/Navigator/PRO/source/runFESA3Navigator"
-
-# DIAMON
 alias diamon="/mcr/bin/javaws http://bewww.cern.ch/~diamonop/dmn2-gui-console/cgi-bin/dmn2-console-pro.jnlpx"
-
-# Laser console
 alias laser="/mcr/bin/javaws http://bewww/~diamonop/laser-alarm-console/PRO/deploy/launch.jnlpx"
-
-# JAPC toolbox
 alias japc="/mcr/bin/javaws http://abwww.cern.ch/ap/dist/inca/app/inca-app/PRO/IncaJapcToolbox.jnlp"
-
-# OASIS
 alias oasis="/mcr/bin/javaws http://abwww.cern.ch/ap/pro/oasis/oasis-viewer/oasis-viewer.jnlp"
-
-# TIMBER
 alias timber="http://abwww.cern.ch/~pcrops/releaseinfo/pcropsdist/accsoft/cals/accsoft-cals-extr-app/PRO/timber.jnlpx"
-
-# Tgm Video
 alias tgmvideo="/mcr/bin/javaws http://abwww.cern.ch/ap/dist/accsoft/timing/accsoft-timing-app-tgmvideo/PRO/VideoLauncher.jnlp"
-
-########
-# CBNG #
-########
 alias bob=/user/pcrops/devtools/CBNG/PRO/bin/bob
 
 ################
@@ -171,7 +142,6 @@ alias bob=/user/pcrops/devtools/CBNG/PRO/bin/bob
 ################
 
 # moved to timtools
-
 source ~/cernbox/be/timtools/bash-extension.sh
 
 #########
