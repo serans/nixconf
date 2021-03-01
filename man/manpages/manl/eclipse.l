@@ -27,3 +27,6 @@ https://stackoverflow.com/questions/13635079/enable\-c11\-in\-eclipse\-cdt\-juno
 properties \-> c++ general \-> preprocessor \-> providers \-> CDT GCC
 Built\-in Compiler Settings \-> add \[lq]\-std=c++14\[rq] to command
 input box
+.PP
+better yet: replace command with
+\f[C]/acc/local/Linux/x86_64\-linux\-gcc/current/gcc/bin/g++\ \-std=c++11\f[]

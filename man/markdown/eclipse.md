@@ -22,3 +22,5 @@ window > preferences > General > keys
 - https://stackoverflow.com/questions/13635079/enable-c11-in-eclipse-cdt-juno-kepler-luna-indexer
 
 properties -> c++ general -> preprocessor -> providers -> CDT GCC Built-in Compiler Settings -> add "-std=c++14" to command input box
+
+better yet: replace command with `/acc/local/Linux/x86_64-linux-gcc/current/gcc/bin/g++ -std=c++11`
