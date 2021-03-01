@@ -16,8 +16,6 @@ export MANPATH=$MANPATH:/usr/share/man # Add man path (cern's CentOS7 don't seem
 export JAVA_HOME=/usr/java/jdk1.8
 export PATH=$JAVA_HOME/bin:$PATH
 
-# python
-#source /acc/local/share/python/acc-py/pro/setup.sh > /dev/null 2>&1
 
 #######
 # SSH #
@@ -113,6 +111,12 @@ alias win="xfreerdp --no-nla --ignore-certificate --plugin cliprdr -g 1900x1150 
 alias eclipse="$HOME/accsoft-eclipse-pro/eclipse"
 alias pycharm="/acc/local/share/python/pycharm/zkovari/PRO/bin/pycharm.sh"
 alias sql="rlwrap sqlplus"
+
+# python
+alias acc-py="source /acc/local/share/python/acc-py/pro/setup.sh"
+
+# lic app suite
+/acc/local/share/timing-lic/deployments/timing-lic-app-suite/prod.sh
 
 # Firefox nightly (fixes render freezing in firefox 79)
 alias firefox-nightly="/opt/mhermose/bin/firefox-nightly/firefox"
