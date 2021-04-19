@@ -13,7 +13,7 @@ export LANG=
 export MANPATH=$MANPATH:/usr/share/man # Add man path (cern's CentOS7 don't seem to get it right)
 
 # For NXCALS
-export JAVA_HOME=/usr/java/jdk1.8
+export JAVA_HOME=/usr/java/jdk1.11
 export PATH=$JAVA_HOME/bin:$PATH
 
 
